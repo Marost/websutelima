@@ -3,16 +3,16 @@ include("panel@sutep/conexion/conexion.php");
 include("panel@sutep/conexion/funciones.php");
 
 //NOTICIA INFERIOR
-$rst_noticia_inferior=mysql_query("SELECT * FROM iev_noticia WHERE noticia=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
+$rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
 
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Impacto Evangelistico</title>
+<title>SUTEP</title>
 
-
+<?php require_once("wg-header-script.php"); ?>
 
 </head>
 
@@ -43,7 +43,7 @@ $rst_noticia_inferior=mysql_query("SELECT * FROM iev_noticia WHERE noticia=1 AND
 			$fechaExpNoticia=explode("-", $fechaNoticia[0]);
 						
 			//CATEOGRIA
-			$rst_noticia_cateogia=mysql_query("SELECT * FROM iev_noticia_categoria WHERE id=$noticiaInf_categoria;", $conexion);
+			$rst_noticia_cateogia=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id=$noticiaInf_categoria;", $conexion);
 			$fila_noticia_categoria=mysql_fetch_array($rst_noticia_cateogia);
 			
 			//VARIABLES CATEGORIA

@@ -5,7 +5,7 @@ article, footer, header, section{ display: block;}
 body{ font-size:14px; }
 h1, h2, h3, h4, h5, h6, a, p{ margin:0; padding:0; font-weight:normal; text-decoration:none;}
 p{ line-height:150%;}
-header{ width:100%; float:left; background-color:#fff; border-bottom:1px solid #B2B2B2; padding:10px 0; }
+header{ width:100%; float:left; background-color:#fff; border-bottom:1px solid #B2B2B2; }
 section{ width:100%; float:left; background-color:#F1EFED; padding:30px 0; }
 footer{ width:100%; float:left; background-color:#fff; padding:15px 0; }
 nav{ width:100%; }
@@ -16,40 +16,181 @@ nav{ width:100%; }
 
 
 /*====================================== HEADER ======================================*/
+
+.header-datos{
+    background-color: #2b2b2b;
+    color: #6c6c6c;
+    float: left;
+    width: 100%;
+
+	ul{
+	    margin: 0;
+	    padding: 0;
+	    list-style: none;
+
+		li{
+		    float: left;
+		    padding: 7px 10px;
+		    font-size: 12px;
+
+			a{
+			    color: #6c6c6c;
+			}
+		}
+	}
+}
+
+
 /* HEADER SUPERIOR */
-#header_superior{ width:100%; float:left; }
+#header_superior{ 
+	width:100%; 
+	float:left;
+	position: relative;
+	margin: 0 0 5px 0;
 
-/* HEADER SUPERIOR - LOGO */
-#header_superior #hds_logo{ width:400px; float:left; }
-#header_superior #hds_logo h1 a{ display:block; width:350px; height:125px; float:left; background:url(../imagenes/logo_v312.png) no-repeat; text-indent:-1000em; }
+	#hds_logo{ 
+		width:350px; 
+		float:left;
+		margin-top: 8px;
 
-/* HEADER SUPERIOR - SOCIAL MEDIA*/
-#header_superior #hds_social{ width:135px; height:35px; float:left; padding:0 0 0 455px; }
-#header_superior #hds_social ul{ margin:0; padding:0; list-style:none; clear:both; float:left; }
-#header_superior #hds_social ul li{ margin:0; padding:0; overflow:hidden; float: left; text-indent:-1000em; width:45px; height:35px;}
-#header_superior #hds_social ul a{ margin:0 5px; padding:0; float:left; clear:both; width:35px; height:35px; background-image:url(../imagenes/icon-social.png); }
-#header_superior #hds_social ul a.hdssc_rss{ background-position:0 0; }
-#header_superior #hds_social ul a.hdssc_rss:hover{ background-position:0 -45px; }
-#header_superior #hds_social ul a.hdssc_youtube{ background-position:-45px 0; }
-#header_superior #hds_social ul a.hdssc_youtube:hover{ background-position:-45px -45px; }
-#header_superior #hds_social ul a.hdssc_facebook{ background-position:-90px 0; }
-#header_superior #hds_social ul a.hdssc_facebook:hover{ background-position:-90px -45px; }
+		h1{
+			margin: 0;
+			padding: 0;
 
-/* HEADER MENU */
-#header_menu{ width:100%; float:left; margin:10px 0 0 0; }
-#header_menu nav ul{ margin:0; padding:0; list-style:none; clear:both; float:left; }
-#header_menu nav ul li{ margin:0; padding:0; overflow:hidden; float:left; color:#FFF; }
-#header_menu nav ul li a{ padding:5px; float:left; clear:both; color:#000; font-size:14px; background-color:#000; color:#fff; }
-#header_menu nav ul li a:hover{ text-decoration:underline;}
+			a{ 
+				display:block; 
+				width:335px; 
+				height:97px; 
+				float:left; 
+				background:url(../imagenes/logo.jpg) no-repeat; 
+				text-indent:-1000em;
+			}
+		}
+	}
+
+	#header_menu{ 
+		float:left; 
+		margin:65px 0 0 0; 
+
+		nav{
+
+			ul{ 
+				margin:0; 
+				padding:0; 
+				list-style:none; 
+				clear:both; 
+				float:left;
+
+				li{ 
+					margin:0; 
+					padding:0; 
+					overflow:hidden; 
+					float:left;
+
+					a{ 
+						padding:5px 8px; 
+						float:left; 
+						clear:both; 
+						color:#000; 
+						font-size:12px;
+					}
+
+					a:hover{ 
+						text-decoration:underline;
+					}
+
+					a.cat-destac{
+						background-color: #000;
+						color: #f00;
+						font-weight: bold;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+
+	#hds_social{
+		width: 135px;
+		height: 35px;
+		position: absolute;
+		float: left;
+		right: 0;
+		top: 5px;
+
+		ul{ 
+			margin:0; 
+			padding:0; 
+			list-style:none; 
+			clear:both; 
+			float:left;
+
+			li{ 
+				margin:0; 
+				padding:0; 
+				overflow:hidden; 
+				float: left; 
+				text-indent:-1000em; 
+				width:45px; 
+				height:35px;
+
+				a{ 
+					margin:0 5px; 
+					padding:0; 
+					float:left; 
+					clear:both; 
+					width:35px; 
+					height:35px; 
+					background-image:url(../imagenes/icon-social.png);
+				}
+
+				a.hdssc_rss{ background-position:0 0; }
+				
+				a.hdssc_rss:hover{ background-position:0 -45px; }
+				
+				a.hdssc_youtube{ background-position:-45px 0; }
+				
+				a.hdssc_youtube:hover{ background-position:-45px -45px; }
+				
+				a.hdssc_facebook{ background-position:-90px 0; }
+				
+				a.hdssc_facebook:hover{ background-position:-90px -45px; }
+			}
+		}
+	}
+}
+
 
 /* HEADER SLIDE */
-#header_slide{ width:100%; float:left; }
-#header_slide .bx-prev{ display:none; }
-#header_slide .bx-next{ display:none; }
-#header_slide a.pager-link{ display:block; float:left; width:246px; height:5px; background-color:#0071A2; text-indent:-1000em; }
-#header_slide a.pager-active{ display:block; float:left; width:246px; height:5px; background-color:#D75A24; text-indent:-1000em; }
-#header_slide a.pager-1, #header_slide a.pager-2, #header_slide a.pager-3{ border-right:1px solid #fff; }
-#header_slide a.pager-4{ width:248px !important; float:left; }
+#header_slide{ 
+	width:100%; 
+	float:left; 
+	height: 460px;
+	background-color: #ccc;
+
+	li{
+		width: 990px;
+		height: 460px;
+			
+		span.typo{
+			padding: 6px 30px;
+			background: #000;
+			color: #fff;
+			font: normal 20px Verdana;
+			bottom: -450px;
+			width: 930px !important;
+		}
+	}
+
+	#slider-principal{ 
+		width:990px; 
+		float:left; 
+		overflow:hidden;
+	}
+
+	.thumbSlider, .left, .right { display: none; }
+}
+
 
 /* HEADER NOTICIAS */
 #header_noticias{ width:100%; float:left; margin:10px 0 0 0; }
@@ -154,11 +295,6 @@ nav{ width:100%; }
 	filter: progid:DXImageTransform.Microsoft.Shadow(strength=3, direction=135, color='#000000');
 	-ms-filter: "progid: DXImageTransform.Microsoft.Shadow(strength = 3, Direction = 135, Color = '#000000')";
 }
-
-/**/
-#pgaleria{ width:290px; float:left; overflow:hidden;}
-#pgaleria_contenido a.left{ margin:-37px 0 0 28px !important;}
-#pgaleria_contenido a.right{ margin:-42px 0 0 242px !important;}
 
 /* SECTION SIDEBAR ITEMS - SALUDOS */
 #section_sidebar .scsdb_item .scsdbi_contenido #wg_saludos{ width:270px; float:left; background-color:#FFFFE8; border:1px solid #FFFF00; padding:10px 9px; font-size:12px; line-height:120% !important; }

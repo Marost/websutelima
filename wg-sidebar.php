@@ -3,31 +3,33 @@
 include("libs/ssdtube/SSDTube.php");
 
 //EDICION IMPRESA
-$rst_edimpresa=mysql_query("SELECT * FROM iev_edicion WHERE fecha_publicacion<='$fechaActual' ORDER BY id DESC", $conexion);
+/*
+$rst_edimpresa=mysql_query("SELECT * FROM stp_portada WHERE fecha_publicacion<='$fechaActual' ORDER BY id DESC", $conexion);
 $fila_edimpresa=mysql_fetch_array($rst_edimpresa);
 $edimpresa_numero=$fila_edimpresa["titulo"];
 $edimpresa_nombre=$fila_edimpresa["nombre_edicion"];
 $edimpresa_imagen=$fila_edimpresa["imagen"];
+*/
 
 //CARTAS
-$rst_cartas=mysql_query("SELECT * FROM iev_cartas WHERE estado='A' AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 5", $conexion);
+$rst_cartas=mysql_query("SELECT * FROM stp_cartas WHERE estado='A' AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 5", $conexion);
 
 //SALUDOS
-$rst_saludos=mysql_query("SELECT * FROM iev_saludos WHERE id>0 AND estado_saludo='A' ORDER BY fecha DESC LIMIT 12", $conexion);
+$rst_saludos=mysql_query("SELECT * FROM stp_saludos WHERE id>0 AND estado_saludo='A' ORDER BY fecha DESC LIMIT 12", $conexion);
 
 //VIDEO TITULO
-$rst_videos_sup=mysql_query("SELECT * FROM iev_videos WHERE id>0 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
+$rst_videos_sup=mysql_query("SELECT * FROM stp_videos WHERE id>0 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
 $num_videos_sup=mysql_num_rows($rst_videos_sup);
 
 //VIDEO TITULO
-$rst_videos_inf=mysql_query("SELECT * FROM iev_videos WHERE id>0 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
+$rst_videos_inf=mysql_query("SELECT * FROM stp_videos WHERE id>0 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
 
 //GALERIA PRINCIPAL
-$rst_galeria_prin=mysql_query("SELECT * FROM iev_galeria WHERE id>0 ORDER BY id DESC;", $conexion);
+$rst_galeria_prin=mysql_query("SELECT * FROM stp_galeria WHERE id>0 ORDER BY id DESC;", $conexion);
 
 //FOTOS DE GALERIA
 function fotoGaleria($idgaleria, $conexion){
-    $rst_query=mysql_query("SELECT * FROM iev_galeria_slide WHERE id>0 AND noticia=$idgaleria ORDER BY orden ASC;", $conexion);
+    $rst_query=mysql_query("SELECT * FROM stp_galeria_slide WHERE id>0 AND noticia=$idgaleria ORDER BY orden ASC;", $conexion);
     return $fila_query=mysql_fetch_array($rst_query);
 }
 

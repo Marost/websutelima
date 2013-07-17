@@ -8,47 +8,47 @@ $idnoticia=$_REQUEST["id"];
 $urlnoticia=$_REQUEST["url"];
 
 //VIDEO TITULO
-$rst_videos_sup=mysql_query("SELECT * FROM iev_videos WHERE id>0 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
+$rst_videos_sup=mysql_query("SELECT * FROM stp_videos WHERE id>0 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
 $num_videos_sup=mysql_num_rows($rst_videos_sup);
 
 //VIDEO TITULO
-$rst_videos_inf=mysql_query("SELECT * FROM iev_videos WHERE id>0 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
+$rst_videos_inf=mysql_query("SELECT * FROM stp_videos WHERE id>0 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
 
 //FUNCION CARGAR TEXTO VIDEO
 function multVideo($idnoticia, $conexion){
-	$rst_query=mysql_query("SELECT * FROM iev_noticia WHERE id=".$idnoticia."", $conexion);
+	$rst_query=mysql_query("SELECT * FROM stp_noticia WHERE id=".$idnoticia."", $conexion);
 	$fila_query=mysql_fetch_array($rst_query);
 	if($fila_query["mostrar_video"]==1){ $texto="Video - ";}
 	return $texto;
 }
 
 function multFotos($idnoticia, $conexion){
-	$rst_query=mysql_query("SELECT * FROM iev_noticia_slide WHERE noticia=".$idnoticia."", $conexion);
+	$rst_query=mysql_query("SELECT * FROM stp_noticia_slide WHERE noticia=".$idnoticia."", $conexion);
 	$num_query=mysql_num_rows($rst_query);
 	if($num_query>0){ $texto="Fotos - ";}
 	return $texto;
 }
 
 //CARTAS
-$rst_cartas=mysql_query("SELECT * FROM iev_cartas WHERE estado='A' AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 5", $conexion);
+$rst_cartas=mysql_query("SELECT * FROM stp_cartas WHERE estado='A' AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 5", $conexion);
 
 //SALUDOS
-$rst_saludos=mysql_query("SELECT * FROM iev_saludos WHERE id>0 AND estado_saludo='A' ORDER BY fecha DESC LIMIT 12", $conexion);
+$rst_saludos=mysql_query("SELECT * FROM stp_saludos WHERE id>0 AND estado_saludo='A' ORDER BY fecha DESC LIMIT 12", $conexion);
 
 //GALERIA PRINCIPAL
-$rst_galeria_prin=mysql_query("SELECT * FROM iev_galeria WHERE id>0 ORDER BY id DESC;", $conexion);
+$rst_galeria_prin=mysql_query("SELECT * FROM stp_galeria WHERE id>0 ORDER BY id DESC;", $conexion);
 
 //FOTOS DE GALERIA
 function fotoGaleria($idgaleria, $conexion){
-	$rst_query=mysql_query("SELECT * FROM iev_galeria_slide WHERE id>0 AND noticia=$idgaleria ORDER BY orden ASC;", $conexion);
+	$rst_query=mysql_query("SELECT * FROM stp_galeria_slide WHERE id>0 AND noticia=$idgaleria ORDER BY orden ASC;", $conexion);
 	return $fila_query=mysql_fetch_array($rst_query);
 }
 
 //MENU
-$rst_menu_superior=mysql_query("SELECT * FROM iev_noticia_categoria WHERE id>0 AND id<>11 AND id<>12 ORDER BY orden ASC;", $conexion);
+$rst_menu_superior=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id>0 AND id<>11 AND id<>12 ORDER BY orden ASC;", $conexion);
 
 //NOTICIA
-$rst_noticia=mysql_query("SELECT * FROM iev_noticia WHERE id=$idnoticia AND url='$urlnoticia';", $conexion);
+$rst_noticia=mysql_query("SELECT * FROM stp_noticia WHERE id=$idnoticia AND url='$urlnoticia';", $conexion);
 $fila_noticia=mysql_fetch_array($rst_noticia);
 $noticia_titulo=$fila_noticia["titulo"];
 $noticia_categoria=$fila_noticia["categoria"];
@@ -66,11 +66,11 @@ $num_noticia=mysql_num_rows($rst_noticia);
 if($num_noticia==0){ header("Location: ".$web);}
 
 //GALERIA DE FOTOS NOTICIA
-$rst_fotos_noticia=mysql_query("SELECT * FROM iev_noticia_slide WHERE noticia=$idnoticia ORDER BY orden ASC;", $conexion);
+$rst_fotos_noticia=mysql_query("SELECT * FROM stp_noticia_slide WHERE noticia=$idnoticia ORDER BY orden ASC;", $conexion);
 $num_fotos_noticia=mysql_num_rows($rst_fotos_noticia);
 
 //COMENTARIO NOTICIA
-$rst_comentario=mysql_query("SELECT * FROM iev_noticia_comentario WHERE noticia=$idnoticia AND estado_comentario='A'", $conexion);
+$rst_comentario=mysql_query("SELECT * FROM stp_noticia_comentario WHERE noticia=$idnoticia AND estado_comentario='A'", $conexion);
 $num_comentario=mysql_num_rows($rst_comentario);
 
 //COMENTAR NOTICIA
@@ -83,7 +83,7 @@ if($proceso=="comentar"){
 	$fecha_comentario=date('Y-m-d');
 	$hora_comentario= date('H:i');
 	$est_comment="I";
-	$rst_guradar_comentario=mysql_query("INSERT INTO iev_noticia_comentario (nombre, email, comentario, fecha, hora, noticia, estado_comentario) VALUES ('$nombres_comentario', '$email_comentario', '$comentario', '$fecha_comentario', '$hora_comentario', $id_comentario, '$est_comment')", $conexion);	
+	$rst_guradar_comentario=mysql_query("INSERT INTO stp_noticia_comentario (nombre, email, comentario, fecha, hora, noticia, estado_comentario) VALUES ('$nombres_comentario', '$email_comentario', '$comentario', '$fecha_comentario', '$hora_comentario', $id_comentario, '$est_comment')", $conexion);	
 	header("Location: ".$web."noticia/".$idnoticia."-".$urlnoticia);
 }
 
@@ -94,19 +94,19 @@ $fecha_usuario=date("Y-m-d");
 $hora_usuario=date("H:i");
 $horau_usuario=date("H");
 $diau_usuario=date("z");
-$rst_contador=mysql_query("SELECT * FROM iev_noticia_contador WHERE noticia='$contador_noticia' LIMIT 1;", $conexion);
+$rst_contador=mysql_query("SELECT * FROM stp_noticia_contador WHERE noticia='$contador_noticia' LIMIT 1;", $conexion);
 $fila_contador=mysql_fetch_array($rst_contador);
 $num_contador=$fila_contador["contador"] + 1;
 $visita_cantidad=$fila_noticia["cantidad_visitas"];
 if($fila_contador["ip"]!="$ip_usuario" || $fila_contador["horau"]!=$horau_usuario || $fila_contador["diau"]!=$diau_usuario){
 	$visita_aumentar=$visita_cantidad + 1;
-	mysql_query("UPDATE iev_noticia_contador SET ip='$ip_usuario', fecha='$fecha_usuario', hora='$hora_usuario', horau=$horau_usuario, diau=$diau_usuario, contador=$num_contador 
+	mysql_query("UPDATE stp_noticia_contador SET ip='$ip_usuario', fecha='$fecha_usuario', hora='$hora_usuario', horau=$horau_usuario, diau=$diau_usuario, contador=$num_contador 
 	WHERE noticia='$contador_noticia';", $conexion);
-	mysql_query("UPDATE iev_noticia SET cantidad_visitas=$visita_aumentar WHERE id=$idnoticia", $conexion);
+	mysql_query("UPDATE stp_noticia SET cantidad_visitas=$visita_aumentar WHERE id=$idnoticia", $conexion);
 }
 
 //EDICION IMPRESA
-$rst_edimpresa=mysql_query("SELECT * FROM iev_edicion WHERE fecha_publicacion<='$fechaActual' ORDER BY id DESC", $conexion);
+$rst_edimpresa=mysql_query("SELECT * FROM stp_edicion WHERE fecha_publicacion<='$fechaActual' ORDER BY id DESC", $conexion);
 $fila_edimpresa=mysql_fetch_array($rst_edimpresa);
 $edimpresa_numero=$fila_edimpresa["titulo"];
 $edimpresa_nombre=$fila_edimpresa["nombre_edicion"];
@@ -258,7 +258,7 @@ jgalweb(document).ready(function(){
 			$fechaExpNoticia=explode("-", $fechaNoticia[0]);
 						
 			//CATEOGRIA
-			$rst_noticia_cateogia=mysql_query("SELECT * FROM iev_noticia_categoria WHERE id=$noticia_categoria;", $conexion);
+			$rst_noticia_cateogia=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id=$noticia_categoria;", $conexion);
 			$fila_noticia_categoria=mysql_fetch_array($rst_noticia_cateogia);
 			
 			//VARIABLES CATEGORIA

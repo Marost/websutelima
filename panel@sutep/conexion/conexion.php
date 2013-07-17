@@ -24,8 +24,8 @@ global $fechaActual;
 
 //VARIABLES
 $carpeta_admin="panel@sutep";
-$tabla_suf="dr";
-$sesion_pre="drs";
+$tabla_suf="stp";
+$sesion_pre="stps";
 $fechaActual=date("Y-m-d H:i:s");
 
 //EMPRESA
