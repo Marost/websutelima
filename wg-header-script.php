@@ -1,36 +1,40 @@
 <link href="css/estilos.css" rel="stylesheet" type="text/css">
 <link href="css/normalize.css" rel="stylesheet" type="text/css">
 
-<!-- SLIDER PRINCIPAL -->
-<link rel="stylesheet" href="libs/slideviewpro/svwp_style.css" type="text/css" media="screen" /> 
-<script type="text/javascript" src="libs/slideviewpro/jquery-1.6.2.min.js"></script>
-<script type="text/javascript" src="libs/slideviewpro/jquery.slideViewerPro.1.5.js"></script>
-<script type="text/javascript" src="libs/slideviewpro/jquery.timers.js"></script>
-<script type="text/javascript">
-var jgalweb = jQuery.noConflict();
-jgalweb(document).ready(function() {
-    jgalweb("div#slider-principal").slideViewerPro({
-		/*
-		easeTime: 750,
-		asTimer: 4000,
-		thumbs: 0,
-		thumbsVis: false,
-		autoslide: true,
-		typo: true,
-		typoFullOpacity: 0.7,
-		shuffle: false,
-		galBorderWidth: 0
-		*/
-
-		galBorderWidth: 0,
-		autoslide: true, 
-		thumbsVis: false,
-		shuffle: false,
-		typo: true,
-		asTimer: 4000
+<!-- SLIDER PRINCIPAL -->  
+<link href="libs/royalslider/royalslider.css" rel="stylesheet">
+<link href="libs/royalslider/skins/default-inverted/rs-default-inverted.css" rel="stylesheet">
+<script src="libs/royalslider/jquery-1.8.3.min.js"></script>
+<script src="libs/royalslider/jquery.royalslider.min.js"></script>
+<script>
+	var jSlPr = jQuery.noConflict();
+	jSlPr(document).on("ready", function(){
+		jSlPr('#slider-principal').royalSlider({
+			fadeinLoadedSlide: true,		    
+		    numImagesToPreload: 4,
+		    autoHeight: false,
+		    arrowsNav: true,
+		    arrowsNavAutoHide: false,
+		    fadeinLoadedSlide: false,
+		    controlNavigationSpacing: 0,
+		    controlNavigation: 'none',
+		    imageScaleMode: 'fill',
+		    imageAlignCenter: true,
+		    loop: false,
+		    loopRewind: false,	    
+		    keyboardNavEnabled: false,
+		    autoScaleSlider: true,
+		    globalCaption:true,
+		    autoPlay: {
+		      enabled: true,
+		      pauseOnHover: true
+		    }, 
+		    imgWidth: 990,
+		    imgHeight: 460
+		});
 	});
-});
 </script>
+
 
 <!-- SLIDER 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>

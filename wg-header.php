@@ -58,19 +58,37 @@ $rst_menu_superior=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id>0 A
             
         </div><!-- FIN HEADER SUPERIOR -->
         
+        <?php if($wg_slide==true){ ?>
+
         <div id="header_slide">
         	
-            <div id="slider-principal" class="svwp">
-                <ul>
-                    <li><img width="990" height="460" alt="Un grupo de españoles inventa una Google Glass para profesores. Utilizan realidad aumentada. Vea como funcionan."  src="imagenes/upload/imagen1.jpg" /></li>
-                    <li><img width="990" height="460" alt="Flock and Predator - L. Ongaro"  src="imagenes/upload/imagen2.jpg" /></li>
-                    <li><img width="990" height="460" alt="Empathy - K. McDonald"  src="imagenes/upload/imagen3.jpg" /></li>
-                    <li><img width="990" height="460" alt="DIY 3D Scanner - K. McDonald"  src="imagenes/upload/imagen4.jpg" /></li>
-                    <!--eccetera-->
-                </ul>
+            <div id="slider-principal" class="royalSlider">
+
+                <div>
+                    <img width="990" height="460" class="rsImg" src="imagenes/upload/imagen1.jpg" alt="" />
+                    <figure class="rsCaption">Cras pulvinar sociis ac, odio amet, tortor scelerisque. Ut velit, mauris nisi, placerat penatibus vel phasellus pulvinar sagittis habitasse etiam? Risus?</figure>
+                </div>
+
+                <div>
+                    <img width="990" height="460" class="rsImg" src="imagenes/upload/imagen2.jpg" alt="" />
+                    <figure class="rsCaption">This caption text will be used.</figure>
+                </div>
+
+                <div>
+                    <img width="990" height="460" class="rsImg" src="imagenes/upload/imagen3.jpg" alt="" />
+                    <figure class="rsCaption">This caption will be used.</figure>
+                </div>
+
+                <div>
+                    <img width="990" height="460" class="rsImg" src="imagenes/upload/imagen4.jpg" alt="" />
+                    <figure class="rsCaption">This caption be used.</figure>
+                </div>               
+
             </div>
             
         </div><!-- FIN HEADER SLIDE -->
+
+        <?php } ?>
         
     </div><!-- FIN INTERIOR -->
     

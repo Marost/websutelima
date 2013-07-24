@@ -32,7 +32,7 @@ $video_youtube=$_POST["video_youtube"];
 
 //IMAGEN
 if ($tipo_noticia=="not_destacada") {
-	$destacada=1; $superior1=2; $superior2=2; $superior3=2; $superior4=2; $superior5=2; $superior6=2; $superior7=2; $superior8=2; $superior9=2;
+	$destacada=1;
 	if($_POST['uploader_0_tmpname']<>""){
 		$imagen=$_POST["uploader_0_tmpname"];
 		$imagen_carpeta=fechaCarpeta()."/";	
@@ -46,43 +46,8 @@ if ($tipo_noticia=="not_destacada") {
 		$thumb->adaptiveResize(480,220);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}
-}elseif($tipo_noticia=="not_superior1" OR 
-	$tipo_noticia=="not_superior2" OR 
-	$tipo_noticia=="not_superior3" OR 
-	$tipo_noticia=="not_superior4" OR 
-	$tipo_noticia=="not_superior5" OR 
-	$tipo_noticia=="not_superior6" OR 
-	$tipo_noticia=="not_superior7" OR 
-	$tipo_noticia=="not_superior8" OR 
-	$tipo_noticia=="not_superior9"){
-
-	if($tipo_noticia=="not_superior1"){ $superior1=1; $superior2=2; $superior3=2; $superior4=2; $superior5=2; $superior6=2; $superior7=2; $superior8=2; $superior9=2; }
-	elseif($tipo_noticia=="not_superior2"){ $superior2=1; $superior1=2; $superior3=2; $superior4=2; $superior5=2; $superior6=2; $superior7=2; $superior8=2; $superior9=2; }
-	elseif($tipo_noticia=="not_superior3"){ $superior3=1; $superior1=2; $superior2=2; $superior4=2; $superior5=2; $superior6=2; $superior7=2; $superior8=2; $superior9=2; }
-	elseif($tipo_noticia=="not_superior4"){ $superior4=1; $superior1=2; $superior2=2; $superior3=2; $superior5=2; $superior6=2; $superior7=2; $superior8=2; $superior9=2; }
-	elseif($tipo_noticia=="not_superior5"){ $superior5=1; $superior1=2; $superior2=2; $superior3=2; $superior4=2; $superior6=2; $superior7=2; $superior8=2; $superior9=2; }
-	elseif($tipo_noticia=="not_superior6"){ $superior6=1; $superior1=2; $superior2=2; $superior3=2; $superior4=2; $superior5=2; $superior7=2; $superior8=2; $superior9=2; }
-	elseif($tipo_noticia=="not_superior7"){ $superior7=1; $superior1=2; $superior2=2; $superior3=2; $superior4=2; $superior5=2; $superior6=2; $superior8=2; $superior9=2; }
-	elseif($tipo_noticia=="not_superior8"){ $superior8=1; $superior1=2; $superior2=2; $superior3=2; $superior4=2; $superior5=2; $superior6=2; $superior7=2; $superior9=2; }
-	elseif($tipo_noticia=="not_superior9"){ $superior9=1; $superior1=2; $superior2=2; $superior3=2; $superior4=2; $superior5=2; $superior6=2; $superior7=2; $superior8=2; }
-
-	$destacada=2; 
-	if($_POST['uploader_0_tmpname']<>""){
-		$imagen=$_POST["uploader_0_tmpname"];
-		$imagen_carpeta=fechaCarpeta()."/";	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(310,174);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
-	}else{
-		$imagen=$_POST["imagen"];
-		$imagen_carpeta=$_POST["imagen_carpeta"];	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(310,174);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
-	}
-
 }elseif($tipo_noticia=="not_normal"){
-	$destacada=2; $superior1=2; $superior2=2; $superior3=2; $superior4=2; $superior5=2; $superior6=2; $superior7=2; $superior8=2; $superior9=2;
+	$destacada=2;
 	if($_POST['uploader_0_tmpname']<>""){
 		$imagen=$_POST["uploader_0_tmpname"];
 		$imagen_carpeta=fechaCarpeta()."/";	
@@ -117,16 +82,7 @@ $rst_guardar=mysql_query("UPDATE ".$tabla_suf."_noticia SET url='$url', titulo='
 	imagen='$imagen', 
 	imagen_carpeta='$imagen_carpeta', 
 	fecha_publicacion='$fecha_publicacion', 
-	publicar=$publicar, 
-	superior_1=$superior1, 
-	superior_2=$superior2, 
-	superior_3=$superior3, 
-	superior_4=$superior4, 
-	superior_5=$superior5, 
-	superior_6=$superior6, 
-	superior_7=$superior7, 
-	superior_8=$superior8, 
-	superior_9=$superior9, 
+	publicar=$publicar,  
 	destacada=$destacada, 
 	categoria=$categoria, 
 	tags='0,$union_tags,0', 

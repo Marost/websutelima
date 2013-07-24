@@ -109,24 +109,6 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                         <div class="grid9 yes_no">
                             <div class="floatL mr10">Destacada
                                 <input type="radio" name="tipo_noticia" value="not_destacada" /></div>
-                            <div class="floatL mr10">Superior 1
-                                <input type="radio" name="tipo_noticia" value="not_superior1" /></div>
-                            <div class="floatL mr10">Superior 2
-                                <input type="radio" name="tipo_noticia" value="not_superior2" /></div>
-                            <div class="floatL mr10">Superior 3
-                                <input type="radio" name="tipo_noticia" value="not_superior3" /></div>
-                            <div class="floatL mr10">Superior 4
-                                <input type="radio" name="tipo_noticia" value="not_superior4" /></div>
-                            <div class="floatL mr10">Superior 5
-                                <input type="radio" name="tipo_noticia" value="not_superior5" /></div>
-                            <div class="floatL mr10">Superior 6
-                                <input type="radio" name="tipo_noticia" value="not_superior6" /></div>
-                            <div class="floatL mr10">Superior 7
-                                <input type="radio" name="tipo_noticia" value="not_superior7" /></div>
-                            <div class="floatL mr10">Superior 8
-                                <input type="radio" name="tipo_noticia" value="not_superior8" /></div>
-                            <div class="floatL mr10">Superior 9
-                                <input type="radio" name="tipo_noticia" value="not_superior9" /></div>
                             <div class="floatL mr10">Normal
                                 <input type="radio" name="tipo_noticia" value="not_normal" checked="checked" /></div>
                         </div>

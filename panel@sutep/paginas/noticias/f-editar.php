@@ -20,15 +20,6 @@ $nota_video=$fila_nota["video"];
 $nota_video_tipo=$fila_nota["tipo_video"];
 $nota_categoria=$fila_nota["categoria"];
 $nota_destacada=$fila_nota["destacada"];
-$nota_superior1=$fila_nota["superior_1"];
-$nota_superior2=$fila_nota["superior_2"];
-$nota_superior3=$fila_nota["superior_3"];
-$nota_superior4=$fila_nota["superior_4"];
-$nota_superior5=$fila_nota["superior_5"];
-$nota_superior6=$fila_nota["superior_6"];
-$nota_superior7=$fila_nota["superior_7"];
-$nota_superior8=$fila_nota["superior_8"];
-$nota_superior9=$fila_nota["superior_9"];
 $nota_publicar=$fila_nota["publicar"];
 
 /* FECHA */
@@ -151,72 +142,9 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                                 <input type="radio" name="tipo_noticia" value="not_destacada" checked /></div>
                                 <?php }else{ ?>
                                 <input type="radio" name="tipo_noticia" value="not_destacada" /></div>
-                                <?php } ?>
-                            <div class="floatL mr10">Superior 1
-                                <?php if($nota_superior1==1){ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior1" checked /></div>
-                                <?php }else{ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior1" /></div>
-                                <?php } ?>
-                            <div class="floatL mr10">Superior 2
-                                <?php if($nota_superior2==1){ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior2" checked /></div>
-                                <?php }else{ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior2" /></div>
-                                <?php } ?>
-                            <div class="floatL mr10">Superior 3
-                                <?php if($nota_superior3==1){ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior3" checked /></div>
-                                <?php }else{ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior3" /></div>
-                                <?php } ?>
-                            <div class="floatL mr10">Superior 4
-                                <?php if($nota_superior4==1){ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior4" checked /></div>
-                                <?php }else{ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior4" /></div>
-                                <?php } ?>
-                            <div class="floatL mr10">Superior 5
-                                <?php if($nota_superior5==1){ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior5" checked /></div>
-                                <?php }else{ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior5" /></div>
-                                <?php } ?>
-                            <div class="floatL mr10">Superior 6
-                                <?php if($nota_superior6==1){ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior6" checked /></div>
-                                <?php }else{ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior6" /></div>
-                                <?php } ?>
-                            <div class="floatL mr10">Superior 7
-                                <?php if($nota_superior7==1){ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior7" checked /></div>
-                                <?php }else{ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior7" /></div>
-                                <?php } ?>
-                            <div class="floatL mr10">Superior 8
-                                <?php if($nota_superior8==1){ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior8" checked /></div>
-                                <?php }else{ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior8" /></div>
-                                <?php } ?>
-                            <div class="floatL mr10">Superior 9
-                                <?php if($nota_superior9==1){ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior9" checked /></div>
-                                <?php }else{ ?>
-                                <input type="radio" name="tipo_noticia" value="not_superior9" /></div>
-                                <?php } ?>
+                                <?php } ?>                            
                             <div class="floatL mr10">Normal
-                                <?php if($nota_destacada<>1 and 
-                                    $nota_superior1<>1 and 
-                                    $nota_superior2<>1 and 
-                                    $nota_superior3<>1 and 
-                                    $nota_superior4<>1 and 
-                                    $nota_superior5<>1 and 
-                                    $nota_superior6<>1 and 
-                                    $nota_superior7<>1 and 
-                                    $nota_superior8<>1 and 
-                                    $nota_superior9<>1){ ?>
+                                <?php if($nota_destacada<>1){ ?>
                                 <input type="radio" name="tipo_noticia" value="not_normal" checked /></div>
                                 <?php }else{ ?>
                                 <input type="radio" name="tipo_noticia" value="not_normal" /></div>

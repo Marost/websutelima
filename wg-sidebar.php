@@ -39,44 +39,17 @@ function fotoGaleria($idgaleria, $conexion){
     <!-- EDICION DEL MES -->
   	<div class="scsdb_item">
     	
-        <div class="scsdbi_cabecera">EDICIÓN DEL MES <span><a href="english_edition">ENGLISH EDITION</a></span></div>
+        <div class="scsdbi_cabecera">La Voz del Magisterio</div>
         
         <div class="scsdbi_contenido scsdbic_fdBlanco scsdbic_txtCentro">
-		<a href="/revista/<?php echo $edimpresa_numero; ?>/index.html" target="_blank"><img src="imagenes/revista/<?php echo $edimpresa_imagen; ?>" width="239" height="320" alt="Portada" title="<?php echo $edimpresa_nombre; ?>"></a></div>
-        
-    </div>
-    
-    <div class="scsdb_item">
-    	
-        <div class="scsdbi_cabecera"><a href="edicion_anterior">EDICIONES ANTERIORES</a></div>
+    		<a href="/revista/<?php echo $edimpresa_numero; ?>/index.html" target="_blank">
+                <img src="imagenes/revista/<?php echo $edimpresa_imagen; ?>" width="239" height="320" alt="Portada" title="<?php echo $edimpresa_nombre; ?>">
+            </a>
+        </div>
         
     </div>
     <!-- FIN EDICION DEL MES -->
-    
-    <!-- SALUDOS -->
-    <div class="scsdb_item">
-    	
-        <div class="scsdbi_cabecera">ENVIA TUS SALUDOS</div>
         
-      	<div class="scsdbi_contenido scsdbic_ancho290 scsdbic_pTop0 scsdbic_pLeft0 scsdbic_pBottom0 scsdbic_pRight0">
-		
-        <div id="wg_saludos">
-            <div class="scsdbic_ctdSaludos">
-                <?php while($fila_saludos=mysql_fetch_array($rst_saludos)){ ?>
-                <div>
-                    <p><strong><?php echo $fila_saludos["nombre"]; ?>:</strong> <?php echo $fila_saludos["contenido"]; ?></p>
-                </div>
-                <?php } ?>
-            </div>
-        </div>
-            
-        <div class="scsdbic_btnSaludos"><a href="http://impactoevangelistico.net/saludos">Clic aquí</a></div>
-            
-        </div>
-        
-    </div>
-    <!-- FIN SALUDOS -->
-    
     <!-- GALERIA DE IMAGENES -->
     <div class="scsdb_item">
     	
@@ -177,8 +150,8 @@ function fotoGaleria($idgaleria, $conexion){
                 </div>
                 <?php } ?>
             </div>
-            <p><a href="http://impactoevangelistico.net/cartas" class="todas_cartas">Todas las cartas...</a></p>
-            <p class="escribe_cartas">Escribenos a: cartas@impactoevangelistico.net</p>
+            <p><a href="cartas" class="todas_cartas">Todas las cartas...</a></p>
+            <p class="escribe_cartas">Escribenos a: cartas@sutep.org.pe</p>
       	</div>
         
     </div>

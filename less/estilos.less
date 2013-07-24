@@ -6,7 +6,7 @@ body{ font-size:14px; }
 h1, h2, h3, h4, h5, h6, a, p{ margin:0; padding:0; font-weight:normal; text-decoration:none;}
 p{ line-height:150%;}
 header{ width:100%; float:left; background-color:#fff; border-bottom:1px solid #B2B2B2; }
-section{ width:100%; float:left; background-color:#F1EFED; padding:30px 0; }
+section{ width:100%; float:left; background-color:#b1b1b1; padding:30px 0; }
 footer{ width:100%; float:left; background-color:#fff; padding:15px 0; }
 nav{ width:100%; }
 
@@ -168,27 +168,24 @@ nav{ width:100%; }
 	height: 460px;
 	background-color: #ccc;
 
-	li{
-		width: 990px;
-		height: 460px;
-			
-		span.typo{
-			padding: 6px 30px;
-			background: #000;
-			color: #fff;
-			font: normal 20px Verdana;
-			bottom: -450px;
-			width: 930px !important;
+	#slider-principal{ 
+		width:990px; 
+		height: 460px !important;
+		float:left; 
+		overflow:hidden;
+
+		.rsGCaption {
+			width: 960px;
+			text-align: left;
+			position: absolute;
+			bottom: 10px;
+			background-image: url(../imagenes/fondo-noticia-trans.png);
+			color: #FFF;
+			padding: 15px;
+			font-size: 20px;
 		}
 	}
 
-	#slider-principal{ 
-		width:990px; 
-		float:left; 
-		overflow:hidden;
-	}
-
-	.thumbSlider, .left, .right { display: none; }
 }
 
 
@@ -213,54 +210,101 @@ nav{ width:100%; }
 #section_news .scnw_item .scnwi_categoria{ width:620px; float:left; position:absolute; z-index:3; top:0; left:0; padding:10px 0 0 0; }
 #section_news .scnw_item .scnwi_categoria .scnwic_color{ width:100px; height:12px; margin:7px 0 0 0; float:left; }
 
-#section_news .scnw_item .scnwi_categoria .bgamenidades{ background-color:#D31C24 !important; }
-#section_news .scnw_item .scnwi_categoria .clamenidades{ color:#D31C24; }
-#section_news .scnw_item .scnwi_categoria .bgeditorial{ background-color:#B01117 !important; }
-#section_news .scnw_item .scnwi_categoria .cleditorial{ color:#B01117; }
-#section_news .scnw_item .scnwi_categoria .bgdevocionales{ background-color:#00ADEE !important; }
-#section_news .scnw_item .scnwi_categoria .cldevocionales{ color:#00ADEE; }
 #section_news .scnw_item .scnwi_categoria .bgeconomia{ background-color:#EC1C24 !important; }
 #section_news .scnw_item .scnwi_categoria .cleconomia{ color:#EC1C24; }
-#section_news .scnw_item .scnwi_categoria .bgeventos{ background-color:#00ADEE !important; }
-#section_news .scnw_item .scnwi_categoria .cleventos{ color:#00ADEE; }
-#section_news .scnw_item .scnwi_categoria .bgheroes-fe{ background-color:#9E1F63 !important; }
-#section_news .scnw_item .scnwi_categoria .clheroes-fe{ color:#9E1F63; }
-#section_news .scnw_item .scnwi_categoria .bghistoria{ background-color:#B76E11 !important; }
-#section_news .scnw_item .scnwi_categoria .clhistoria{ color:#B76E11; }
 #section_news .scnw_item .scnwi_categoria .bginternacional{ background-color:#EC1C24 !important; }
 #section_news .scnw_item .scnwi_categoria .clinternacional{ color:#EC1C24; }
-#section_news .scnw_item .scnwi_categoria .bgliteratura{ background-color:#AC913C !important; }
-#section_news .scnw_item .scnwi_categoria .clliteratura{ color:#AC913C; }
 #section_news .scnw_item .scnwi_categoria .bgnoticias{ background-color:#EC1C24 !important; }
 #section_news .scnw_item .scnwi_categoria .clnoticias{ color:#EC1C24; }
 #section_news .scnw_item .scnwi_categoria .bgportada{ background-color:#FFC10E !important; }
 #section_news .scnw_item .scnwi_categoria .clportada{ color:#FFC10E; }
-#section_news .scnw_item .scnwi_categoria .bgtestimonios{ background-color:#B76E11 !important; }
-#section_news .scnw_item .scnwi_categoria .cltestimonios{ color:#B76E11; }
 #section_news .scnw_item .scnwi_categoria .bgtecnologia{ background-color:#2B388F !important; }
 #section_news .scnw_item .scnwi_categoria .cltecnologia{ color:#2B388F; }
-#section_news .scnw_item .scnwi_categoria .bgmusica{ background-color:#034EA1 !important; }
-#section_news .scnw_item .scnwi_categoria .clmusica{ color:#034EA1; }
-#section_news .scnw_item .scnwi_categoria .bgcreacionismo{ background-color:#25408E !important; }
-#section_news .scnw_item .scnwi_categoria .clcreacionismo{ color:#25408E; }
-#section_news .scnw_item .scnwi_categoria .bghistorias-vida{ background-color:#B76E11 !important; }
-#section_news .scnw_item .scnwi_categoria .clhistorias-vida{ color:#B76E11; }
-#section_news .scnw_item .scnwi_categoria .bgSorteo{ background-color:#69C !important; }
-#section_news .scnw_item .scnwi_categoria .clSorteo{ color:#69C; }
 
-#section_news .scnw_item .scnwi_categoria .scnwic_nombre{ width:200px; float:left; font-size:14px; font-weight:bold; }
-#section_news .scnw_item .scnwi_categoria .scnwic_nombre span{ font-size:21px; font-weight:bold; font-stretch:narrower; color:#000 !important; margin:0; padding:0; }
-#section_news .scnw_item .scnwi_detalles{ width:620px; float:left; padding:30px 0 0 0; }
-#section_news .scnw_item .scnwi_detalles h2,
-#section_news .scnw_item .scnwi_detalles h2 a{ font-size:40px; font-weight:bold; color:#0B466C;}
-#section_news .scnw_item .scnwi_detalles p{ font-size:12px;}
-#section_news .scnw_item .scnwi_imagen{ width:620px; float:left; margin:10px 0 0 0; }
-#section_news .scnw_item .scnwi_contenido{ width:620px; float:left; margin:10px 0 0 0; }
-#section_news .scnw_item .scnwi_fecha_social{ width:620px; float:left; margin:5px 0 0 0; }
-#section_news .scnw_item .scnwi_fecha_social .scnwifsc_fecha{ width:620px; float:left; font-size:11px; color:#999; }
-#section_news .scnw_item .scnwi_fecha_social .scnwifsc_social{ width:620px; float:left; margin:5px 0 0 0; }
-#section_news .scnw_item .scnwi_fecha_social .scnwifsc_social .scnwifscs_twitter,
-#section_news .scnw_item .scnwi_fecha_social .scnwifsc_social .scnwifscs_facebook{ width:120px; float:left; }
+
+#section_news{
+
+	.scnw_item{
+
+		.scnwi_categoria{
+
+			.scnwic_nombre{
+				width:200px; 
+				float:left; 
+				font-size:14px; 
+				font-weight:bold;
+
+				span{ 
+					font-size:21px; 
+					font-weight:bold; 
+					font-stretch:narrower; 
+					color:#000 !important; 
+					margin:0; 
+					padding:0;
+				}
+			}
+		}
+
+		.scnwi_detalles{ 
+			width:620px; 
+			float:left; 
+			padding:30px 0 0 0;
+
+			h2, h2 a{
+				margin: 0;
+				font-size:40px; 
+				font-weight:bold; 
+				color:#0B466C;
+			}
+		}
+
+		.scnwi_imagen{ 
+			width:620px; 
+			float:left; 
+			margin:10px 0 0 0;
+			text-align: center;
+
+			.royalSlider {
+				width: 620px !important;
+				height: 400px;
+				position: relative;
+				direction: ltr;
+			}
+		}
+
+		.scnwi_contenido{ 
+			width:620px; 
+			float:left; 
+			margin:10px 0 0 0;
+			text-align: justify;
+
+			p{
+				font-size: 14px;
+				margin-top: 0px;
+			}
+		}
+
+		.scnwi_fecha_social{ 
+			width:620px; 
+			float:left; 
+			margin:5px 0 0 0;
+
+			.scnwifsc_fecha{ 
+				width:620px; 
+				float:left; 
+				font-size:11px; 
+				color:#999;
+			}
+
+			.scnwifsc_social{ 
+				width:620px; 
+				float:left; 
+				margin:5px 0 0 0;
+			}
+		}
+	}
+}
+
 
 /* SECTION NEWS - SORTEO */
 #section_sorteo{ width:100%; float:left; }

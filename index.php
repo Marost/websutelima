@@ -2,15 +2,18 @@
 include("panel@sutep/conexion/conexion.php");
 include("panel@sutep/conexion/funciones.php");
 
+//WIDGETS
+$wg_slide=true;
+
 //NOTICIA INFERIOR
-$rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
+$rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publicacion<='$fechaActual' AND publicar=1 ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
 
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>SUTEP</title>
+<title><?php echo $web_nombre; ?></title>
 
 <?php require_once("wg-header-script.php"); ?>
 
@@ -35,7 +38,7 @@ $rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publica
 			$noticiaInf_titulo=$fila_noticia_inferior["titulo"];
 			$noticiaInf_contenido=$fila_noticia_inferior["contenido"];
 			$noticiaInf_imagen=$fila_noticia_inferior["imagen"];
-			$noticiaInf_imagen_carpeta=$fila_noticia_inferior["carpeta_imagen"];
+			$noticiaInf_imagen_carpeta=$fila_noticia_inferior["imagen_carpeta"];
 			
 			//FECHA PUBLICACION
 			$fechaPubNoticiaInf=$fila_noticia_inferior["fecha_publicacion"];
@@ -50,6 +53,10 @@ $rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publica
 			$categoriaInf_id=$fila_noticia_categoria["id"];
 			$categoriaInf_url=$fila_noticia_categoria["url"];
 			$categoriaInf_titulo=$fila_noticia_categoria["categoria"];
+
+            //URLS
+            $noticiaInf_urlWeb=$web."noticia/".$noticiaInf_id."-".$noticiaInf_url;
+            $noticiaInf_urlImg=$web."imagenes/upload/".$noticiaInf_imagen_carpeta."".$noticiaInf_imagen;
             ?>
             	
             <div class="scnw_item">
@@ -60,15 +67,21 @@ $rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publica
                 </div>
                 
                 <div class="scnwi_detalles">
-                	
-                    <h2><a href="noticia/<?php echo $noticiaInf_id."-".$noticiaInf_url; ?>"><?php echo $noticiaInf_titulo; ?></a></h2>
-                    <?php echo cortarTextoRH($noticiaInf_contenido,1,0,400); ?>
-                    
+                    <h2>
+                        <a href="<?php echo $noticiaInf_urlWeb; ?>">
+                            <?php echo $noticiaInf_titulo; ?>
+                        </a>
+                    </h2>                    
                 </div>
                 
                 <div class="scnwi_imagen">
-                	<a href="noticia/<?php echo $noticiaInf_id."-".$noticiaInf_url; ?>">
-                    	<img src="imagenes/upload/<?php echo $noticiaInf_imagen_carpeta."thumb/".$noticiaInf_imagen; ?>" alt="Imagen"></a>
+                	<a href="<?php echo $noticiaInf_urlWeb; ?>">
+                    	<img src="<?php echo $noticiaInf_urlImg; ?>" alt="<?php echo $noticiaInf_titulo; ?>">
+                    </a>
+                </div>
+
+                <div class="scnwi_contenido">
+                    <?php echo primerParrafo($noticiaInf_contenido); ?>
                 </div>
                 
                 <div class="scnwi_fecha_social">
@@ -79,35 +92,18 @@ $rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publica
                     
                     <div class="scnwifsc_social">
                     	
-                        <div class="scnwifscs_twitter">
-                            
-                            <a href="https://twitter.com/share" 
-                            class="twitter-share-button" 
-                            data-url="http://impactoevangelistico.net/noticia/<?php echo $noticiaSup_id."-".$noticiaSup_url; ?>" 
-                            data-text="Impacto Evangelístico" 
-                            data-lang="es" data-hashtags="Impacto_Evangel">Twittear</a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                            
-                        </div><!-- NOTWEB TWITTER -->
-                        
-                        <div class="scnwifscs_facebook">
-                            
-                            <div id="fb-root"></div>
-                            <script>(function(d, s, id) {
-                              var js, fjs = d.getElementsByTagName(s)[0];
-                              if (d.getElementById(id)) return;
-                              js = d.createElement(s); js.id = id;
-                              js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=217179171676130";
-                              fjs.parentNode.insertBefore(js, fjs);
-                            }(document, 'script', 'facebook-jssdk'));</script>
-    
-                            <div class="fb-like" 
-                            data-href="http://impactoevangelistico.net/noticia/<?php echo $noticiaSup_id."-".$noticiaSup_url; ?>" 
-                            data-send="false" 
-                            data-layout="button_count" 
-                            data-width="120" data-show-faces="false"></div>
-                            
-                        </div><!-- NOTWEB FACEBOOK -->
+                        <!-- AddThis Button BEGIN -->
+                        <div class="addthis_toolbox addthis_default_style "
+                            addthis:url="<?php echo $noticiaInf_urlWeb; ?>"
+                            addthis:title="<?php echo $noticiaInf_titulo; ?>" >
+                        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                        <a class="addthis_button_tweet"></a>
+                        <a class="addthis_counter addthis_pill_style"></a>
+                        </div>
+                        <script>var addthis_config = {"data_track_addressbar":true};</script>
+                        <script>var addthis_config = {"data_track_clickback": false};</script>
+                        <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51eac0200239baf4"></script>
+                        <!-- AddThis Button END -->
                     
                     </div>
                     
