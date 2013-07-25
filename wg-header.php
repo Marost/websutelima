@@ -1,6 +1,6 @@
 <?php
-//SLIDE SUPERIOR
-$rst_slide_superior=mysql_query("SELECT * FROM stp_slide_superior WHERE id>0 ORDER BY orden ASC LIMIT 4;", $conexion);
+//NOTICIA DESTACADA
+$rst_nota_dest=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publicacion<='$fechaActual' AND destacada=1 AND publicar=1 ORDER BY fecha_publicacion DESC LIMIT 4", $conexion);
 
 //MENU
 $rst_menu_superior=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id>0 AND id<>11 AND id<>12 ORDER BY orden ASC;", $conexion);
@@ -61,29 +61,34 @@ $rst_menu_superior=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id>0 A
         <?php if($wg_slide==true){ ?>
 
         <div id="header_slide">
+
+            <a href="javascript:;" id="slider-prev">Prev</a>
+            <a href="javascript:;" id="slider-next">Next</a>
         	
             <div id="slider-principal" class="royalSlider">
+                
+                <?php while($fila_nota_dest=mysql_fetch_array($rst_nota_dest)){
+                        $notDest_id=$fila_nota_dest["id"];
+                        $notDest_url=$fila_nota_dest["url"];
+                        $notDest_titulo=$fila_nota_dest["titulo"];
+                        $notDest_imagen=$fila_nota_dest["imagen"];
+                        $notDest_imagen_carpeta=$fila_nota_dest["imagen_carpeta"];
+
+                        //URL
+                        $notDest_urlWeb=$web."noticia/".$notDest_id."-".$notDest_url;
+                        $notDest_urlImg=$web."imagenes/upload/".$notDest_imagen_carpeta."".$notDest_imagen;
+                ?>
 
                 <div>
-                    <img width="990" height="460" class="rsImg" src="imagenes/upload/imagen1.jpg" alt="" />
-                    <figure class="rsCaption">Cras pulvinar sociis ac, odio amet, tortor scelerisque. Ut velit, mauris nisi, placerat penatibus vel phasellus pulvinar sagittis habitasse etiam? Risus?</figure>
+                    <img width="990" height="460" class="rsImg" src="<?php echo $notDest_urlImg; ?>" alt="<?php echo $notDest_titulo; ?>" />
+                    <figure class="rsCaption">
+                        <a href="<?php echo $notDest_urlWeb; ?>" title="<?php echo $notDest_titulo; ?>">
+                            <?php echo $notDest_titulo; ?></a>
+                    </figure>
                 </div>
 
-                <div>
-                    <img width="990" height="460" class="rsImg" src="imagenes/upload/imagen2.jpg" alt="" />
-                    <figure class="rsCaption">This caption text will be used.</figure>
-                </div>
-
-                <div>
-                    <img width="990" height="460" class="rsImg" src="imagenes/upload/imagen3.jpg" alt="" />
-                    <figure class="rsCaption">This caption will be used.</figure>
-                </div>
-
-                <div>
-                    <img width="990" height="460" class="rsImg" src="imagenes/upload/imagen4.jpg" alt="" />
-                    <figure class="rsCaption">This caption be used.</figure>
-                </div>               
-
+                <?php } ?>
+                
             </div>
             
         </div><!-- FIN HEADER SLIDE -->

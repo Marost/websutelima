@@ -167,6 +167,7 @@ nav{ width:100%; }
 	float:left; 
 	height: 460px;
 	background-color: #ccc;
+	position: relative;
 
 	#slider-principal{ 
 		width:990px; 
@@ -183,7 +184,48 @@ nav{ width:100%; }
 			color: #FFF;
 			padding: 15px;
 			font-size: 20px;
+
+			a{
+				color: #fff;
+			}
 		}
+
+		.categoria{
+			background-color: #FF0;
+			color: #000;
+			top: -360px;
+			right: 0;
+			position: absolute;
+			padding: 5px 10px;
+			font-size: 14px;
+			font-weight: bold;
+		}
+	}
+
+	#slider-prev{
+		position: absolute;
+		height: 100px;
+		width: 100px;
+		z-index: 1000;
+		display: block;		
+		top: 180px;
+		left: 5px;
+		text-indent:-10000em;
+		background-image: url(../imagenes/icons-arrow.png);
+		background-position: 0 0;
+	}
+
+	#slider-next{
+		position: absolute;
+		height: 100px;
+		width: 100px;
+		z-index: 1000;
+		display: block;		
+		top: 180px;
+		right: 5px;
+		text-indent:-10000em;
+		background-image: url(../imagenes/icons-arrow.png);
+		background-position: -124px 0;
 	}
 
 }

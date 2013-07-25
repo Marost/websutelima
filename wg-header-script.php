@@ -9,7 +9,7 @@
 <script>
 	var jSlPr = jQuery.noConflict();
 	jSlPr(document).on("ready", function(){
-		jSlPr('#slider-principal').royalSlider({
+		var SldPr = jSlPr('#slider-principal').royalSlider({
 			fadeinLoadedSlide: true,		    
 		    numImagesToPreload: 4,
 		    autoHeight: false,
@@ -26,12 +26,20 @@
 		    autoScaleSlider: true,
 		    globalCaption:true,
 		    autoPlay: {
-		      enabled: true,
-		      pauseOnHover: true
+		      enabled: false
 		    }, 
 		    imgWidth: 990,
 		    imgHeight: 460
+		}).data('royalSlider');
+		  
+		jSlPr('#slider-next').click(function() {
+			SldPr.next();
 		});
+		
+		jSlPr('#slider-prev').click(function() {
+		    SldPr.prev();
+		});
+
 	});
 </script>
 
