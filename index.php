@@ -6,7 +6,7 @@ include("panel@sutep/conexion/funciones.php");
 $wg_slide=true;
 
 //NOTICIA INFERIOR
-$rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publicacion<='$fechaActual' AND publicar=1 ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
+$rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publicacion<='$fechaActual' AND destacada<>1 AND publicar=1 ORDER BY fecha_publicacion DESC LIMIT 3;", $conexion);
 
 ?>
 <!DOCTYPE HTML>

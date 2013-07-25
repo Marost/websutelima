@@ -4,6 +4,9 @@ include("../../conexion/conexion.php");
 include("../../conexion/funciones.php");
 require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
 
+//THUMBS
+$options = array('jpegQuality' => 80);
+
 //DECLARACION DE VARIABLES
 $nota_id=$_REQUEST["id"];
 $nombre=$_POST["nombre"];
@@ -36,30 +39,30 @@ if ($tipo_noticia=="not_destacada") {
 	if($_POST['uploader_0_tmpname']<>""){
 		$imagen=$_POST["uploader_0_tmpname"];
 		$imagen_carpeta=fechaCarpeta()."/";	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(480,220);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", $options);
+		$thumb->adaptiveResize(990,460);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
 	}else{
 		$imagen=$_POST["imagen"];
 		$imagen_carpeta=$_POST["imagen_carpeta"];	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(480,220);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", $options);
+		$thumb->adaptiveResize(990,460);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
 	}
 }elseif($tipo_noticia=="not_normal"){
 	$destacada=2;
 	if($_POST['uploader_0_tmpname']<>""){
 		$imagen=$_POST["uploader_0_tmpname"];
 		$imagen_carpeta=fechaCarpeta()."/";	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(200,110);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", $options);
+		$thumb->adaptiveResize(620,400);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
 	}else{
 		$imagen=$_POST["imagen"];
 		$imagen_carpeta=$_POST["imagen_carpeta"];	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(200,110);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", $options);
+		$thumb->adaptiveResize(620,400);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
 	}
 }
 

@@ -4,6 +4,9 @@ include("../../conexion/conexion.php");
 include("../../conexion/funciones.php");
 require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
 
+//THUMBS
+$options = array('jpegQuality' => 80);
+
 //DECLARACION DE VARIABLES
 $nombre=$_POST["nombre"];
 $url=getUrlAmigable(eliminarTextoURL($nombre));
@@ -35,9 +38,9 @@ if ($tipo_noticia=="not_destacada") {
 		$imagen=$upload_imagen;
 		$imagen_carpeta=fechaCarpeta()."/";	
 		$mostrar_imagen=1;
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(480,220);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", $options);
+		$thumb->adaptiveResize(990,660);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
 	}else{
 		$imagen=""; $imagen_carpeta="";
 	}
@@ -47,9 +50,9 @@ if ($tipo_noticia=="not_destacada") {
 		$imagen=$upload_imagen;
 		$imagen_carpeta=fechaCarpeta()."/";	
 		$mostrar_imagen=1;
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(200,110);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", $options);
+		$thumb->adaptiveResize(620,400);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
 	}else{
 		$imagen=""; $imagen_carpeta="";
 	}

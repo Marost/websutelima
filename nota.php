@@ -41,20 +41,6 @@ $num_fotos_noticia=mysql_num_rows($rst_fotos_noticia);
 <title><?php echo stripslashes($noticia_titulo); ?> | <?php echo $web_nombre; ?></title>
 <base href="<?php echo $web; ?>" />
 
-<?php require_once("wg-header-script.php"); ?>
-
-<!-- AddThis -->
-<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51eac0200239baf4"></script>
-<script>
-  addthis.layers({
-    'theme' : 'transparent',
-    'share' : {
-      'position' : 'left',
-      'numPreferredServices' : 5
-    }
-  });
-</script>
-
 <!-- LIBRERIA -->
 <link href="libs/royalslider/royalslider.css" rel="stylesheet">
 <link href="libs/royalslider/skins/default/rs-default.css" rel="stylesheet">
@@ -88,6 +74,20 @@ jQuery(document).ready(function($) {
         }
     });
 });
+</script>
+
+<?php require_once("wg-header-script.php"); ?>
+
+<!-- AddThis -->
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51eac0200239baf4"></script>
+<script>
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'numPreferredServices' : 5
+    }
+  });
 </script>
 
 </head>
@@ -157,7 +157,7 @@ jQuery(document).ready(function($) {
                             <?php } ?>
                         </div>
                     <?php }else{ ?>
-                        <img src="<?php echo $nota_web_img; ?>" alt="<?php echo $nota_titulo; ?>">
+                        <img src="<?php echo $noticia_web_img; ?>" alt="<?php echo $noticia_titulo; ?>">
                     <?php } ?>
 
                 </div>
