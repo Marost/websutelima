@@ -25,13 +25,31 @@ $noticia_video_carpeta=$fila_noticia["carpeta_video"];
 $noticia_video_tipo=$fila_noticia["tipo_video"];
 $noticia_comentarios=$fila_noticia["comentarios"];
 
+//TIPO NOTICIA
+$noticia_tipo=$fila_noticia["destacada"];
+
 //URLS
 $noticia_web=$web."noticia/".$idnoticia."-".$urlnoticia;
 $noticia_web_img=$web."imagenes/upload/".$noticia_imagen_carpeta."".$noticia_imagen;
+$noticia_web_img_dest=$web."imagenes/upload/".$noticia_imagen_carpeta."thumb/".$noticia_imagen;
 
 //GALERIA DE FOTOS NOTICIA
 $rst_fotos_noticia=mysql_query("SELECT * FROM stp_noticia_slide WHERE noticia=$idnoticia ORDER BY orden ASC;", $conexion);
 $num_fotos_noticia=mysql_num_rows($rst_fotos_noticia);
+
+//FECHA PUBLICACION
+$fechaPubNoticiaInf=$noticia_fecha;
+$fechaNoticia=explode(" ", $fechaPubNoticiaInf);
+$fechaExpNoticia=explode("-", $fechaNoticia[0]);
+            
+//CATEOGRIA
+$rst_noticia_cateogia=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id=$noticia_categoria;", $conexion);
+$fila_noticia_categoria=mysql_fetch_array($rst_noticia_cateogia);
+
+//VARIABLES CATEGORIA
+$categoriaInf_id=$fila_noticia_categoria["id"];
+$categoriaInf_url=$fila_noticia_categoria["url"];
+$categoriaInf_titulo=$fila_noticia_categoria["categoria"];
 
 ?>
 <!DOCTYPE HTML>
@@ -101,22 +119,6 @@ jQuery(document).ready(function($) {
 	<div class="interior limpiar">
 
         <div id="section_news">
-        	
-            <?php
-			//FECHA PUBLICACION
-			$fechaPubNoticiaInf=$noticia_fecha;
-			$fechaNoticia=explode(" ", $fechaPubNoticiaInf);
-			$fechaExpNoticia=explode("-", $fechaNoticia[0]);
-						
-			//CATEOGRIA
-			$rst_noticia_cateogia=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id=$noticia_categoria;", $conexion);
-			$fila_noticia_categoria=mysql_fetch_array($rst_noticia_cateogia);
-			
-			//VARIABLES CATEGORIA
-			$categoriaInf_id=$fila_noticia_categoria["id"];
-			$categoriaInf_url=$fila_noticia_categoria["url"];
-			$categoriaInf_titulo=$fila_noticia_categoria["categoria"];
-            ?>
             	
             <div class="scnw_item">
             	
@@ -157,7 +159,11 @@ jQuery(document).ready(function($) {
                             <?php } ?>
                         </div>
                     <?php }else{ ?>
-                        <img src="<?php echo $noticia_web_img; ?>" alt="<?php echo $noticia_titulo; ?>">
+                        <?php if($noticia_tipo==1){ ?>
+                            <img src="<?php echo $noticia_web_img_dest; ?>" alt="<?php echo $noticia_titulo; ?>">
+                        <?php }else{ ?>
+                            <img src="<?php echo $noticia_web_img; ?>" alt="<?php echo $noticia_titulo; ?>">
+                        <?php } ?>
                     <?php } ?>
 
                 </div>
