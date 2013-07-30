@@ -1,47 +1,9 @@
 <link href="css/estilos.css" rel="stylesheet" type="text/css">
 <link href="css/normalize.css" rel="stylesheet" type="text/css">
 
-<!-- SLIDER PRINCIPAL -->  
+<!-- ROYALSLIDER CSS -->
 <link href="libs/royalslider/royalslider.css" rel="stylesheet">
-<link href="libs/royalslider/skins/default-inverted/rs-default-inverted.css" rel="stylesheet">
-<script src="libs/royalslider/jquery-1.8.3.min.js"></script>
-<script src="libs/royalslider/jquery.royalslider.min.js"></script>
-<script>
-	var jSlPr = jQuery.noConflict();
-	jSlPr(document).on("ready", function(){
-		var SldPr = jSlPr('#slider-principal').royalSlider({
-			fadeinLoadedSlide: true,		    
-		    numImagesToPreload: 4,
-		    autoHeight: false,
-		    arrowsNav: true,
-		    arrowsNavAutoHide: false,
-		    fadeinLoadedSlide: false,
-		    controlNavigationSpacing: 0,
-		    controlNavigation: 'none',
-		    imageScaleMode: 'fill',
-		    imageAlignCenter: true,
-		    loop: false,
-		    loopRewind: false,	    
-		    keyboardNavEnabled: false,
-		    autoScaleSlider: true,
-		    globalCaption:true,
-		    autoPlay: {
-		      enabled: false
-		    }, 
-		    imgWidth: 990,
-		    imgHeight: 460
-		}).data('royalSlider');
-		  
-		jSlPr('#slider-next').click(function() {
-			SldPr.next();
-		});
-		
-		jSlPr('#slider-prev').click(function() {
-		    SldPr.prev();
-		});
-
-	});
-</script>
+<link href="libs/royalslider/skins/default/rs-default.css" rel="stylesheet">
 
 
 <!-- SLIDER 
