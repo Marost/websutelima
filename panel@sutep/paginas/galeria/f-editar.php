@@ -8,11 +8,17 @@ require_once("../../conexion/verificar_sesion.php");
 $id_url=$_REQUEST["id"];
 
 //EDITAR
-$rst_nota=mysql_query("SELECT * FROM ".$tabla_suf."_posicion_fija WHERE id=$id_url;", $conexion);
+$rst_nota=mysql_query("SELECT * FROM ".$tabla_suf."_galeria WHERE id=$id_url;", $conexion);
 $fila_nota=mysql_fetch_array($rst_nota);
 
 //VARIABLES
-$nota_nombre=$fila_nota["posicion"];
+$nota_titulo=$fila_nota["titulo"];
+$nota_publicar=$fila_nota["publicar"];
+
+/* FECHA */
+$nota_fecha_pub=explode(" ", $fila_nota["fecha_publicacion"]);
+$nota_pub_fecha=$nota_fecha_pub[0];
+$nota_pub_hora=$nota_fecha_pub[1];
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -43,8 +49,7 @@ $nota_nombre=$fila_nota["posicion"];
 <!-- Content begins -->
 <div id="content">
     <div class="contentTop">
-        <span class="pageTitle"><span class="icon-screen"></span>Posiciones</span>
-
+        <span class="pageTitle"><span class="icon-screen"></span>Galería de Fotos</span>
     </div>
     
     <!-- Breadcrumbs line -->
@@ -64,8 +69,26 @@ $nota_nombre=$fila_nota["posicion"];
                     <div class="whead"><h6>Editar</h6></div>
                     
                     <div class="formRow">
-                        <div class="grid3"><label>Nombre:</label></div>
-                        <div class="grid9"><input type="text" name="nombre" value="<?php echo $nota_nombre; ?>" /></div>
+                        <div class="grid3"><label>Titulo:</label></div>
+                        <div class="grid9"><input type="text" name="titulo" value="<?php echo $nota_titulo; ?>" /></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Fecha de publicación:</label></div>
+                        <div class="grid4"><input type="text" class="datepicker" name="pub_fecha" value="<?php echo $nota_pub_fecha; ?>" /></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Hora de publicación:</label></div>
+                        <div class="grid4"><input type="text" class="timepicker" name="pub_hora" size="10" value="<?php echo $nota_pub_hora; ?>" />
+                            <span class="ui-datepicker-append">Utilice la rueda del ratón y el teclado</span></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Publicar: </label></div>
+                        <div class="grid9 enabled_disabled">
+                            <div class="floatL mr10"><input type="checkbox" id="check4" <?php if($nota_publicar==1){ ?>checked<?php } ?> value="1" name="publicar" /></div>
+                        </div>
                     </div>
                     
                     <div class="formRow">

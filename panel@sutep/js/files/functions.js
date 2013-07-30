@@ -311,7 +311,22 @@ $(function() {
 		dragdrop: false,
 		resize: {quality: 50},
 		filters : [
-			{title : "Imagenes", extensions : "jpg,gif,png,jpeg"}
+			{title : "Imagenes", extensions : "jpg"}
+		]
+	});
+
+	//===== File uploader: GALERIA DE FOTOS =====//
+	
+	$("#uploader_galeria").pluploadQueue({
+		runtimes : 'html5,html4',
+		url : '/panel@sutep/php/upload_galeria.php',
+		max_file_size : '100mb',
+		chunk_size : '1mb',
+		unique_names : true,
+		dragdrop: false,
+		resize: {quality: 50},
+		filters : [
+			{title : "Imagenes", extensions : "jpg"}
 		]
 	});
 

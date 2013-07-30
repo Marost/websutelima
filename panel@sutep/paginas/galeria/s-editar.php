@@ -6,10 +6,21 @@ require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
 
 //DECLARACION DE VARIABLES
 $nota_id=$_REQUEST["id"];
-$nombre=$_POST["nombre"];
+$titulo=$_POST["titulo"];
+$url=getUrlAmigable(eliminarTextoURL($titulo));
+
+//FECHA Y HORA
+$pub_fecha=$_POST["pub_fecha"];
+$pub_hora=$_POST["pub_hora"];
+$fecha_publicacion=$pub_fecha." ".$pub_hora;
+
+//PUBLICAR
+if ($_POST["publicar"]<>""){ $publicar=$_POST["publicar"]; }else{ $publicar=0; }
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_posicion_fija SET posicion='$nombre' WHERE id=$nota_id;", $conexion);
+$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_galeria SET url='$url', titulo='".htmlspecialchars($titulo)."', 
+	fecha_publicacion='$fecha_publicacion', 
+	publicar=$publicar WHERE id=$nota_id;", $conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
