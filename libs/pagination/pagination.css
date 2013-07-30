@@ -1,0 +1,232 @@
+div.outer_pagination {
+  display: block;
+}
+
+div.outer_pagination div.pagination {
+  padding: 3px;
+  margin: 0;
+  font-size: 11px;
+  font-family: Tahoma, Arial, Verdana, sans-serif;
+}
+
+div.outer_pagination div.pagination span {
+  display: inline-block;
+  padding: 1px 0px;
+  background-color: #137bb1;
+  text-shadow: 1px 1px #3d3b3b;
+  border: 1px solid #0c5980;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+div.outer_pagination div.pagination span:hover {
+  border: 1px solid #1474a6;
+  background-color: #1e98d7;
+}
+
+div.outer_pagination div.pagination span.selected {
+  display: inline-block;
+  margin: 0;
+  padding: 1px 5px 1px 5px;
+  text-shadow: 1px 1px #3d3b3b;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #2086bb;
+  background-color: #38afec;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+div.outer_pagination div.pagination span a {
+  display: inline;
+  width: 100%;
+  text-decoration: none;
+  padding: 0px 5px;
+  color: #fff;
+  border: 1px solid #2896c3;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+div.outer_pagination div.pagination span.selected a {
+  border: 1px solid #39afe1;
+}
+
+div.outer_pagination div.pagination span:hover a {
+  border: 1px solid #58c1f1;
+}
+
+div.outer_pagination div.pagination a:active, div.pagination a:focused {
+  text-decoration: none;
+  border: 1px solid #1474a6;
+  background-color: #1e98d7;
+}
+
+div.outer_pagination div.pagination span.disabled {
+  color: #fff;
+  padding: 1px 6px;
+  background-color: #1e98d7;
+}
+
+div.outer_pagination div.pagination form {
+  margin: 5px 0px;
+  right: 0;
+}
+
+/* ORANGE */
+
+div.outer_pagination div.orange span {
+  background-color: #dc9232;
+  border: 1px solid #af7325;
+}
+
+div.outer_pagination div.orange span:hover {
+  border: 1px solid #d18a30;
+  background-color: #ea9e3c;
+}
+
+div.outer_pagination div.orange span.selected {
+  border: 1px solid #d59848;
+  background-color: #f1b05b;
+}
+
+div.outer_pagination div.orange span a {
+  border: 1px solid #e5aa52;
+}
+
+div.outer_pagination div.orange span.selected a {
+  border: 1px solid #f5c27a;
+}
+
+div.outer_pagination div.orange span:hover a {
+  border: 1px solid #efb45c;
+}
+
+div.outer_pagination div.orange a:active, div.orange a:focused {
+  border: 1px solid #d18a30;
+  background-color: #ea9e3c;
+}
+
+div.outer_pagination div.orange span.disabled {
+  background-color: #ea9e3c;
+}
+
+/* PURPLE */
+
+div.outer_pagination div.purple span {
+  background-color: #af22b4;
+  border: 1px solid #821786;
+}
+
+div.outer_pagination div.purple span:hover {
+  border: 1px solid #a224a6;
+  background-color: #cb35d0;
+}
+
+div.outer_pagination div.purple span.selected {
+  border: 1px solid #ce3cd3;
+  background-color: #e34be8;
+}
+
+div.outer_pagination div.purple span a {
+  border: 1px solid #c13fc5;
+}
+
+div.outer_pagination div.purple span.selected a {
+  border: 1px solid #ea6bee;
+}
+
+div.outer_pagination div.purple span:hover a {
+  border: 1px solid #d855db;
+}
+
+div.outer_pagination div.purple a:active, div.purple a:focused {
+  border: 1px solid #a224a6;
+  background-color: #cb35d0;
+}
+
+div.outer_pagination div.purple span.disabled {
+  background-color: #cb35d0;
+}
+
+/* BLACK */
+
+div.outer_pagination div.black span {
+  background-color: #262626;
+  border: 1px solid #000;
+}
+
+div.outer_pagination div.black span:hover {
+  border: 1px solid #212121;
+  background-color: #444444;
+}
+
+div.outer_pagination div.black span.selected {
+  border: 1px solid #595959;
+  background-color: #7f7f7f;
+}
+
+div.outer_pagination div.black span a {
+  border: 1px solid #444444;
+}
+
+div.outer_pagination div.black span.selected a {
+  border: 1px solid #9a9a9a;
+}
+
+div.outer_pagination div.black span:hover a {
+  border: 1px solid #646464;
+}
+
+div.outer_pagination div.black a:active, div.black a:focused {
+  border: 1px solid #212121;
+  background-color: #444444;
+}
+
+div.outer_pagination div.black span.disabled {
+  background-color: #444444;
+}
+
+/* WHITE */
+
+div.outer_pagination div.white span {
+  background-color: #dfdfdf;
+  border: 1px solid #aeaeae;
+  color: #717171 !important;
+  text-shadow: none !important;
+}
+
+div.outer_pagination div.white span:hover {
+  border: 1px solid #c0c0c0;
+  background-color: #eaeaea;
+}
+
+div.outer_pagination div.white span.selected {
+  border: 1px solid #d5d5d5;
+  background-color: #f8f8f8;
+}
+
+div.outer_pagination div.white span a {
+  border: 1px solid #e7e7e7;
+  color: #717171 !important;
+}
+
+div.outer_pagination div.white span.selected a {
+  border: 1px solid #fafafa;
+}
+
+div.outer_pagination div.white span:hover a {
+  border: 1px solid #efefef;
+}
+
+div.outer_pagination div.white a:active, div.white a:focused {
+  border: 1px solid #c0c0c0;
+  background-color: #eaeaea;
+}
+
+div.outer_pagination div.white span.disabled {
+  background-color: #eaeaea;
+}
