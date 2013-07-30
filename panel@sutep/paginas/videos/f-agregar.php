@@ -32,30 +32,7 @@ $pub_hora=date("H:i:s");
     
     <?php require_once("../../w-sidebarmenu.php"); ?>
     
-    <!-- Secondary nav -->
-    <div class="secNav">
-        <div class="secWrapper">
-            <div class="secTop">
-                <div class="balance">                    
-                </div>
-            </div>
-            
-            <div class="divider"><span></span></div>
-            
-            <!-- Sidebar subnav -->
-            <ul class="subNav">
-                <li><a href="../entrevistas/lista.php" title=""><span class="icos-frames"></span>Entrevistas</a></li>
-                <li><a href="../jugadores/lista.php" title=""><span class="icos-frames"></span>Jugadores</a></li>
-                <li><a href="lista.php" class="this" title=""><span class="icos-frames"></span>Noticias</a></li>
-                <li><a href="../posiciones/lista.php" title="" ><span class="icos-frames"></span>Posiciones</a></li>
-            </ul>
-            
-            <div class="divider"><span></span></div>
-                    
-        </div> 
-    </div>
-</div>
-<!-- Sidebar ends -->    
+</div><!-- Sidebar ends -->      
 	
     
 <!-- Content begins -->
@@ -73,7 +50,7 @@ $pub_hora=date("H:i:s");
     <!-- Main content -->
     <div class="wrapper">
 
-        <form id="submit-form" class="main" method="POST" action="s-guardar.php">
+        <form id="validate" class="main" method="POST" action="s-guardar.php">
 
             <fieldset>
                 <div class="widget fluid">
@@ -82,14 +59,22 @@ $pub_hora=date("H:i:s");
                     
                     <div class="formRow">
                         <div class="grid3"><label>Titulo:</label></div>
-                        <div class="grid9"><input type="text" name="titulo" /></div>
+                        <div class="grid9"><input type="text" name="titulo" class="validate[required]" /></div>
                     </div>
 
                     <div class="formRow">
-                        <div class="grid3"><label>Video:</label></div>
+                        <div class="grid3"><label>Imagen:</label> </div>
                         <div class="grid9">
-                            <input type="text" name="video" />
-                            <span class="note">http://www.youtube.com/watch?v=<strong>5HCaW4Oddro</strong></span>
+                            <div class="widget nomargin">    
+                                <div id="uploader">Tu navegador no soporta HTML5.</div>                    
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Video (Youtube):</label> </div>
+                        <div class="grid9">http://www.youtube.com/watch?v=
+                            <input type="text" name="video_youtube" value="" style="width: 300px;">
                         </div>
                     </div>
 

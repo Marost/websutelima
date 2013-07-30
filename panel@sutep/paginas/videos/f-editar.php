@@ -12,12 +12,16 @@ $rst_nota=mysql_query("SELECT * FROM ".$tabla_suf."_videos WHERE id=$id_url;", $
 $fila_nota=mysql_fetch_array($rst_nota);
 
 //VARIABLES
-$nota_nombre=$fila_nota["titulo"];
-$nota_video=$fila_nota["youtube"];
+$nota_titulo=$fila_nota["titulo"];
+$nota_imagen=$fila_nota["imagen"];
+$nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
+$nota_video=$fila_nota["video"];
+$nota_publicar=$fila_nota["publicar"];
+
+/* FECHA */
 $nota_fecha_pub=explode(" ", $fila_nota["fecha_publicacion"]);
 $nota_pub_fecha=$nota_fecha_pub[0];
 $nota_pub_hora=$nota_fecha_pub[1];
-$nota_publicar=$fila_nota["publicar"];
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -37,36 +41,12 @@ $nota_publicar=$fila_nota["publicar"];
 <?php require_once("../../w-topline.php"); ?>
 <!-- Top line ends -->
 
-
 <!-- Sidebar begins -->
 <div id="sidebar">
     
     <?php require_once("../../w-sidebarmenu.php"); ?>
     
-    <!-- Secondary nav -->
-    <div class="secNav">
-        <div class="secWrapper">
-            <div class="secTop">
-                <div class="balance">                    
-                </div>
-            </div>
-            
-            <div class="divider"><span></span></div>
-            
-            <!-- Sidebar subnav -->
-            <ul class="subNav">
-                <li><a href="../entrevistas/lista.php" title=""><span class="icos-frames"></span>Entrevistas</a></li>
-                <li><a href="../jugadores/lista.php" title=""><span class="icos-frames"></span>Jugadores</a></li>
-                <li><a href="lista.php" class="this" title=""><span class="icos-frames"></span>Noticias</a></li>
-                <li><a href="../posiciones/lista.php" title="" ><span class="icos-frames"></span>Posiciones</a></li>
-            </ul>
-            
-            <div class="divider"><span></span></div>
-                    
-        </div> 
-    </div>
-</div>
-<!-- Sidebar ends -->    
+</div><!-- Sidebar ends -->    
 	
     
 <!-- Content begins -->
@@ -93,14 +73,29 @@ $nota_publicar=$fila_nota["publicar"];
                     
                     <div class="formRow">
                         <div class="grid3"><label>Titulo:</label></div>
-                        <div class="grid9"><input type="text" name="titulo" value="<?php echo $nota_nombre; ?>" /></div>
+                        <div class="grid9"><input type="text" name="titulo" value="<?php echo $nota_titulo; ?>" /></div>
                     </div>
 
                     <div class="formRow">
-                        <div class="grid3"><label>Video:</label></div>
+                        <div class="grid3"><label>Imagen:</label> </div>
                         <div class="grid9">
-                            <input type="text" name="video" value="<?php echo $nota_video; ?>" />
-                            <span class="note">http://www.youtube.com/watch?v=<strong>5HCaW4Oddro</strong></span>
+                            <div class="floatL">
+                                <a href="../../../imagenes/upload/<?php echo $nota_imagen_carpeta."".$nota_imagen; ?>" class="lightbox">
+                                    <img src="../../../imagenes/upload/<?php echo $nota_imagen_carpeta."".$nota_imagen; ?>" width="100" >
+                                </a>
+                            </div>
+                            <div class="widget floarL width60 margin1020">    
+                                <div id="uploader">Tu navegador no soporta HTML5.</div>
+                                <input type="hidden" name="imagen" value="<?php echo $nota_imagen; ?>">
+                                <input type="hidden" name="imagen_carpeta" value="<?php echo $nota_imagen_carpeta; ?>">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Video (Youtube):</label> </div>
+                        <div class="grid9">http://www.youtube.com/watch?v=
+                            <input type="text" name="video_youtube" value="<?php echo $nota_video; ?>" style="width: 300px;">
                         </div>
                     </div>
 

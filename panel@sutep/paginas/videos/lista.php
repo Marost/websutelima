@@ -7,8 +7,66 @@ require_once("../../conexion/verificar_sesion.php");
 //VARIABLES DE URL
 $mensaje=$_REQUEST["msj"];
 
-//JUGADORES
-$rst_nota=mysql_query("SELECT * FROM ".$tabla_suf."_videos ORDER BY fecha_publicacion DESC;", $conexion);
+//LISTA DE REGISTROS - FILTRO
+include_once('../../js/plugins/creative_table/configurations.php');
+
+// Gets the data
+$id=isset($_POST['id']) ? $_POST['id'] : '';
+$search=isset($_POST['search']) ? $_POST['search'] : '';
+$multiple_search=isset($_POST['multiple_search']) ? $_POST['multiple_search'] : array();
+$items_per_page=isset($_POST['items_per_page']) ? $_POST['items_per_page'] : '';
+$sort=isset($_POST['sort']) ? $_POST['sort'] : '';
+$page=isset($_POST['page']) ? $_POST['page'] : 1;
+$total_items=(isset($_POST['total_items']) and $_POST['total_items']>=0) ? $_POST['total_items'] : '';
+$extra_cols=isset($_POST['extra_cols']) ? $_POST['extra_cols'] : array();
+
+// Uses the creativeTable to build the table
+include_once('../../js/plugins/creative_table/creativeTable.php');
+
+$ct=new CreativeTable();
+
+// Data Gathering
+$params['sql_query']                = "SELECT id, titulo, fecha_publicacion FROM ".$tabla_suf."_videos ORDER BY fecha_publicacion DESC, id DESC";
+//$params['search']                   = $search;
+$params['multiple_search']          = $multiple_search;
+$params['items_per_page']           = $items_per_page;
+$params['sort']                     = $sort;
+$params['page']                     = $page;
+$params['total_items']              = $total_items;
+
+$params['header']                   = 'ID,Registro,Fecha publicación';
+$params['width']                    = '30,750,140';
+
+/* ORDENAR POR CAMPOS */
+$params['sort_init'] = false;  // sort all fields
+
+/* BUSCAR */
+$params['search_init'] = false;  // no search
+$params['multiple_search_init'] = true;  // all fields
+$params['multiple_search_init'] = false;  // no advanced search
+$params['multiple_search_init'] = hide;  // all fields but in beginnig they are hidden
+$params['multiple_search_init'] = 'ftff';  // 3rd field only
+
+$arr_extra_cols[0]  = array(6,'Acciones','100','<div class="btn-group" style="display: inline-block; margin-bottom: -4px;">
+                                <a class="buttonS bDefault" data-toggle="dropdown" href="#">Acción<span class="caret"></span></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a onclick="eliminarRegistro(#COL1#);" href="javascript:;">
+                                        <span class="icos-trash"></span>Eliminar</a></li>
+                                    <li><a href="f-editar.php?id=#COL1#" class="">
+                                        <span class="icos-pencil"></span>Modificar</a></li>
+                                </ul>
+                            </div>');
+$params['extra_cols']   = $arr_extra_cols;
+
+$ct->table($params);
+$ct->pager = getCreativePagerLite('ct',$page,$ct->total_items,$ct->items_per_page);
+if($_POST['ajax_option']!=''){
+    echo json_encode($ct->display($_POST['ajax_option'],true));
+    exit;
+}else{
+    $out=$ct->display();
+}
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -28,7 +86,6 @@ function eliminarRegistro(registro) {
     }
 }
 </script>
-
 </head>
 
 <body>
@@ -43,30 +100,7 @@ function eliminarRegistro(registro) {
     
     <?php require_once("../../w-sidebarmenu.php"); ?>
     
-    <!-- Secondary nav -->
-    <div class="secNav">
-        <div class="secWrapper">
-            <div class="secTop">
-                <div class="balance">                    
-                </div>
-            </div>
-            
-            <div class="divider"><span></span></div>
-            
-            <!-- Sidebar subnav -->
-            <ul class="subNav">
-                <li><a href="../entrevistas/lista.php" title=""><span class="icos-frames"></span>Entrevistas</a></li>
-                <li><a href="../jugadores/lista.php" title=""><span class="icos-frames"></span>Jugadores</a></li>
-                <li><a href="lista.php" class="this" title=""><span class="icos-frames"></span>Noticias</a></li>
-                <li><a href="../posiciones/lista.php" title="" ><span class="icos-frames"></span>Posiciones</a></li>
-            </ul>
-            
-            <div class="divider"><span></span></div>
-                    
-        </div> 
-    </div>
-</div>
-<!-- Sidebar ends -->    
+</div><!-- Sidebar ends -->   
 	
     
 <!-- Content begins -->
@@ -105,48 +139,9 @@ function eliminarRegistro(registro) {
         <!-- Media table sample -->
         <div class="widget">
             <div class="whead"><h6>Videos</h6></div>
-            <table cellpadding="0" cellspacing="0" width="100%" border="0" class="dTable">
-                <thead>
-                    <tr>
-                        <td class="sortCol"><div>Registro</div></td>
-                        <td width="200">Fecha publicación</td>
-                        <td width="100">Estado</td>
-                        <td width="100">Acciones</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while($fila_nota=mysql_fetch_array($rst_nota)) {
-                          $nota_id=$fila_nota["id"];
-                          $nota_nombre=$fila_nota["titulo"];
-                          $nota_publicacion=$fila_nota["fecha_publicacion"];
-                          $nota_publicar=$fila_nota["publicar"];
-                    ?>
-                    <tr>
-                        <td class="textL"><?php echo $nota_nombre; ?></td>
-                        <td><?php echo $nota_publicacion; ?></td>
-                        <td>
-                            <?php if($nota_publicar==1){ ?>
-                            <span class="label label-success">Activo</span>
-                            <?php }else{ ?>
-                            <span class="label">Inactivo</span>
-                            <?php } ?>
-                        </td>
-                        <td class="tableActs">
-                            <div class="btn-group" style="display: inline-block; margin-bottom: -4px;">
-                                <a class="buttonS bDefault" data-toggle="dropdown" href="#">Acción<span class="caret"></span></a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li>
-                                        <a onclick="eliminarRegistro(<?php echo $nota_id; ?>);" href="javascript:;">
-                                        <span class="icos-trash"></span>Eliminar</a></li>
-                                    <li><a href="f-editar.php?id=<?php echo $nota_id; ?>" class="">
-                                        <span class="icos-pencil"></span>Modificar</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+            
+            <?php echo $out;?>
+
         </div>
 
     </div>
