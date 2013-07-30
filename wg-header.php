@@ -28,7 +28,7 @@ $rst_menu_superior=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id>0 A
         <div id="header_superior">
         
             <div id="hds_logo">
-            	<h1><a>SUTEP</a></h1>
+            	<h1><a href="/">SUTEP</a></h1>
             </div>
 
             <div id="header_menu">

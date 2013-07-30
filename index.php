@@ -63,7 +63,7 @@ $rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publica
             	
                 <div class="scnwi_categoria">
                 	<div class="scnwic_color bg<?php echo $categoriaInf_url; ?>"></div>
-                    <div class="scnwic_nombre cl<?php echo $categoriaInf_url; ?>"><span>[</span> <?php echo $categoriaInf_titulo; ?> <span>]</span></div>
+                    <div class="scnwic_nombre cl<?php echo $categoriaInf_url; ?>"><?php echo $categoriaInf_titulo; ?></div>
                 </div>
                 
                 <div class="scnwi_detalles">
