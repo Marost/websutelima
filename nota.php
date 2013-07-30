@@ -59,54 +59,11 @@ $categoriaInf_titulo=$fila_noticia_categoria["categoria"];
 <title><?php echo stripslashes($noticia_titulo); ?> | <?php echo $web_nombre; ?></title>
 <base href="<?php echo $web; ?>" />
 
-<!-- LIBRERIA -->
-<link href="libs/royalslider/royalslider.css" rel="stylesheet">
-<link href="libs/royalslider/skins/default/rs-default.css" rel="stylesheet">
-<script src="libs/royalslider/jquery-1.8.3.min.js"></script>
-<script src="libs/royalslider/jquery.royalslider.min.js"></script>
-<script>
-jQuery(document).ready(function($) {
-    $('#galeria-noticia').royalSlider({
-        fullscreen: {
-          enabled: false
-        },
-        controlNavigation: 'thumbnails',
-        autoScaleSlider: true, 
-        autoScaleSliderWidth: 960,     
-        autoScaleSliderHeight: 850,
-        loop: true,
-        imageScaleMode: 'fit-if-smaller',
-        navigateByClick: true,
-        numImagesToPreload:2,
-        arrowsNav:true,
-        arrowsNavAutoHide: true,
-        arrowsNavHideOnTouch: true,
-        keyboardNavEnabled: true,
-        fadeinLoadedSlide: true,
-        globalCaption: true,
-        globalCaptionInside: false,
-        thumbs: {
-          appendSpan: true,
-          firstMargin: true,
-          paddingBottom: 4
-        }
-    });
-});
-</script>
-
 <?php require_once("wg-header-script.php"); ?>
 
-<!-- AddThis -->
-<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51eac0200239baf4"></script>
-<script>
-  addthis.layers({
-    'theme' : 'transparent',
-    'share' : {
-      'position' : 'left',
-      'numPreferredServices' : 5
-    }
-  });
-</script>
+<!-- ROYAL SLIDER CSS -->
+<link href="libs/royalslider/royalslider.css" rel="stylesheet">
+<link href="libs/royalslider/skins/default/rs-default.css" rel="stylesheet">
 
 </head>
 
@@ -124,9 +81,7 @@ jQuery(document).ready(function($) {
             	
                 <div class="scnwi_categoria">
                 	<div class="scnwic_color bg<?php echo $categoriaInf_url; ?>"></div>
-                    <div class="scnwic_nombre cl<?php echo $categoriaInf_url; ?>">
-                        <span>[</span> <?php echo $categoriaInf_titulo; ?> <span>]</span>
-                    </div>
+                    <div class="scnwic_nombre cl<?php echo $categoriaInf_url; ?>"><?php echo $categoriaInf_titulo; ?></div>
                 </div>
                 
                 <div class="scnwi_detalles">
@@ -171,6 +126,24 @@ jQuery(document).ready(function($) {
                 <div class="scnwi_contenido">
                     <?php echo $noticia_contenido; ?>
                 </div>
+
+                <div class="scnwi_contenido">
+
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                        var disqus_shortname = 'sutep'; // required: replace example with your forum shortname
+
+                        /* * * DON'T EDIT BELOW THIS LINE * * */
+                        (function() {
+                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    
+                </div>
                 
             </div><!-- FIN SECTION NEWS ITEM -->
                         
@@ -183,6 +156,62 @@ jQuery(document).ready(function($) {
 </section><!-- FIN SECTION -->
 
 <?php require_once("wg-footer.php"); ?>
+
+<!-- ROYAL SLIDER JS -->
+<script src="libs/royalslider/jquery-1.8.3.min.js"></script>
+<script src="libs/royalslider/jquery.royalslider.min.js"></script>
+<script>
+jQuery(document).ready(function($) {
+    $('#galeria-noticia').royalSlider({
+        fullscreen: {
+          enabled: false
+        },
+        controlNavigation: 'thumbnails',
+        autoScaleSlider: true, 
+        autoScaleSliderWidth: 960,     
+        autoScaleSliderHeight: 850,
+        loop: true,
+        imageScaleMode: 'fit-if-smaller',
+        navigateByClick: true,
+        numImagesToPreload:2,
+        arrowsNav:true,
+        arrowsNavAutoHide: true,
+        arrowsNavHideOnTouch: true,
+        keyboardNavEnabled: true,
+        fadeinLoadedSlide: true,
+        globalCaption: true,
+        globalCaptionInside: false,
+        thumbs: {
+          appendSpan: true,
+          firstMargin: true,
+          paddingBottom: 4
+        }
+    });
+});
+</script>
+
+<!-- AddThis -->
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51eac0200239baf4"></script>
+<script>
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'numPreferredServices' : 5
+    }
+  });
+</script>
+
+<!-- DISQUS -->
+<script>
+var disqus_shortname = 'sutep';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
 
 </body>
 </html>
