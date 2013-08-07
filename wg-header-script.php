@@ -1,5 +1,4 @@
 <link href="css/estilos.css" rel="stylesheet" type="text/css">
-<link href="css/normalize.css" rel="stylesheet" type="text/css">
 
 <!-- ROYALSLIDER CSS -->
 <link href="libs/royalslider/royalslider.css" rel="stylesheet">
