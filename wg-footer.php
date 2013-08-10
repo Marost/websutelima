@@ -66,7 +66,7 @@
 <script>
 var jGalImg = jQuery.noConflict();
 jGalImg(document).on("ready", function(){
-    var GalImg = jGalImg('.galeria-sidebar').royalSlider({
+    var GalImg = jGalImg('#galeria-img').royalSlider({
         addActiveClass: true,
         arrowsNav: false,
         controlNavigation: 'none',
@@ -84,10 +84,51 @@ jGalImg(document).on("ready", function(){
             navigateByCenterClick: true
         }
     }).data('royalSlider');
-
-    jGalImg('.slide4link').click(function(e) {
-        GalImg.goTo(4);
-        return false;
+          
+    jGalImg('#galimg-next').click(function() {
+        GalImg.next();
+    });
+    
+    jGalImg('#galimg-prev').click(function() {
+        GalImg.prev();
     });
 }); 
 </script>
+
+<!-- VIDEOS -->
+<script>
+var jGalVid = jQuery.noConflict();
+jGalVid(document).on("ready", function(){
+    var GalVid = jGalVid('#galeria-vid').royalSlider({
+        addActiveClass: true,
+        arrowsNav: false,
+        controlNavigation: 'none',
+        loop: false,
+        fadeinLoadedSlide: false,
+        globalCaption: true,
+        keyboardNavEnabled: false,
+        globalCaptionInside: false,
+        visibleNearby: {
+            enabled: true,
+            centerArea: 0.9,
+            center: true,
+            breakpoint: 100,
+            breakpointCenterArea: 0.8,
+            navigateByCenterClick: true
+        }
+    }).data('royalSlider');
+          
+    jGalVid('#galvid-next').click(function() {
+        GalVid.next();
+    });
+    
+    jGalVid('#galvid-prev').click(function() {
+        GalVid.prev();
+    });
+}); 
+</script>
+
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="js/html5.js"></script>
+<![endif]-->

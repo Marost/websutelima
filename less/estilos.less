@@ -301,7 +301,7 @@ table {
 /*====================================== ETIQUETAS ======================================*/
 article, footer, header, section{ display: block;}
 body{ font-size:14px; }
-h1, h2, h3, h4, h5, h6, a, p{ margin:0; padding:0; font-weight:normal; text-decoration:none;}
+h1, h2, h3, h4, h5, h6, a, p{ padding:0; font-weight:normal; text-decoration:none;}
 p{ line-height:150%;}
 header{ width:100%; float:left; background-color:#fff; border-bottom:1px solid #B2B2B2; }
 section{ width:100%; float:left; background-color:#b1b1b1; padding:30px 0; }
@@ -566,6 +566,14 @@ nav{ width:100%; }
 
 #section_news{
 
+	.scnw_item.all{
+		width: 950px;
+
+		.scnwi_contenido{
+			width: 950px;
+		}
+	}
+
 	.scnw_item{
 
 		.scnwi_categoria{
@@ -774,7 +782,7 @@ nav{ width:100%; }
 				width: 100%;
 				text-align: center;				
 				left: 0 !important;
-				padding: 10px 0!important;
+				padding: 0!important;
 
 				a{
 					color: #000;
@@ -818,6 +826,31 @@ nav{ width:100%; }
 			float:left; 
 			padding:10px; 
 			margin:5px 0 0 0;
+			position: relative;
+
+			.galarrow-prev{
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1000;
+				height: 100%;
+				width: 30px;
+				text-indent: -1000em;
+				background-image: url(../imagenes/icons-arrow-gs.png);
+				background-position: 0 0;
+			}
+
+			.galarrow-next{
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 1000;
+				height: 100%;
+				width: 30px;
+				text-indent: -1000em;
+				background-image: url(../imagenes/icons-arrow-gs.png);
+				background-position: -30px 0;
+			}
 		}
 
 		.scsdbic_fdBlanco{ background-color:#fff; }

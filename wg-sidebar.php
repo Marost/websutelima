@@ -45,10 +45,10 @@ $rst_galeria_prin=mysql_query("SELECT * FROM stp_galeria WHERE fecha_publicacion
         
       	<div class="scsdbi_contenido scsdbic_ancho290 scsdbic_pTop0 scsdbic_pLeft0 scsdbic_pBottom0 scsdbic_pRight0">
 
-            <a href="javascript:;" id="slider-prev">Prev</a>
-            <a href="javascript:;" id="slider-next">Next</a>
+            <a href="javascript:;" class="galarrow-prev" id="galimg-prev">Prev</a>
+            <a href="javascript:;" class="galarrow-next" id="galimg-next">Next</a>
 
-        	<div class="galeria-sidebar royalSlider rsDefault visibleNearby">
+        	<div id="galeria-img" class="galeria-sidebar royalSlider rsDefault visibleNearby">
                 
                 <?php while($fila_galeria_prin=mysql_fetch_array($rst_galeria_prin)){
                         $galeriPrin_id=$fila_galeria_prin["id"];
@@ -88,10 +88,10 @@ $rst_galeria_prin=mysql_query("SELECT * FROM stp_galeria WHERE fecha_publicacion
         
    	  	<div class="scsdbi_contenido scsdbic_ancho290 scsdbic_pTop0 scsdbic_pLeft0 scsdbic_pBottom0 scsdbic_pRight0">
 
-            <a href="javascript:;" id="slider-prev">Prev</a>
-            <a href="javascript:;" id="slider-next">Next</a>
+            <a href="javascript:;" class="galarrow-prev" id="galvid-prev">Prev</a>
+            <a href="javascript:;" class="galarrow-next" id="galvid-next">Next</a>
             
-            <div class="galeria-sidebar royalSlider rsDefault visibleNearby" >
+            <div id="galeria-vid" class="galeria-sidebar royalSlider rsDefault visibleNearby" >
                 
                 <?php while($fila_videos=mysql_fetch_array($rst_videos)){
                         $galeriPrin_titulo=$fila_videos["titulo"];
