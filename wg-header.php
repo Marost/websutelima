@@ -42,7 +42,7 @@ $rst_menu_superior=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id>0 A
                         <li><a href="#">Defensa</a></li>
                         <li><a href="#">Pedagógicos</a></li>
                         <li><a href="#">Galería</a></li>
-                        <li><a class="cat-destac" href="#">SUTEP RTV</a></li>
+                        <li><a class="cat-destac" href="rtv">SUTEP RTV</a></li>
                     </ul>
                 </nav>
             
@@ -71,6 +71,7 @@ $rst_menu_superior=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id>0 A
                         $notDest_id=$fila_nota_dest["id"];
                         $notDest_url=$fila_nota_dest["url"];
                         $notDest_titulo=$fila_nota_dest["titulo"];
+                        $notDest_contenido=soloDescripcion($fila_nota_dest["contenido"]);
                         $notDest_imagen=$fila_nota_dest["imagen"];
                         $notDest_imagen_carpeta=$fila_nota_dest["imagen_carpeta"];
 
@@ -84,6 +85,7 @@ $rst_menu_superior=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id>0 A
                     <figure class="rsCaption">
                         <a href="<?php echo $notDest_urlWeb; ?>" title="<?php echo $notDest_titulo; ?>">
                             <?php echo $notDest_titulo; ?></a>
+                        <p><?php echo $notDest_contenido; ?></p>
                     </figure>
                 </div>
 
