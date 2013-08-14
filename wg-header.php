@@ -41,8 +41,8 @@ $rst_menu_superior=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id>0 A
                         <li><a href="#">Comunicaciones</a></li>
                         <li><a href="#">Defensa</a></li>
                         <li><a href="#">Pedagógicos</a></li>
-                        <li><a href="#">Galería</a></li>
-                        <li><a class="cat-destac" href="rtv">SUTEP RTV</a></li>
+                        <li><a href="http://sutep.marostsac.com/galeria/1-el-secretario-general-sutep-hamer-villena-zuniga-tuvo-un-encuentro-informativo-bases-region-tacna">Galería</a></li>
+                        <li><a class="cat-destac" href="tv">SUTEP TV</a></li>
                     </ul>
                 </nav>
             
