@@ -5,41 +5,18 @@ include("panel@sutep/conexion/funciones.php");
 //WIDGETS
 $wg_slide=false;
 
-//VARIABLES
-$idnoticia=$_REQUEST["id"];
-$urlnoticia=$_REQUEST["url"];
-
-//NOTICIA
-$rst_noticia=mysql_query("SELECT * FROM stp_galeria WHERE id=$idnoticia AND url='$urlnoticia';", $conexion);
-$fila_noticia=mysql_fetch_array($rst_noticia);
-$noticia_titulo=$fila_noticia["titulo"];
-$noticia_fecha=$fila_noticia["fecha_publicacion"];
-
-//GALERIA DE FOTOS NOTICIA
-$rst_fotos_noticia=mysql_query("SELECT * FROM stp_galeria_slide WHERE noticia=$idnoticia ORDER BY orden ASC;", $conexion);
-$num_fotos_noticia=mysql_num_rows($rst_fotos_noticia);
-
-//FECHA PUBLICACION
-$fechaPubNoticiaInf=$noticia_fecha;
-$fechaNoticia=explode(" ", $fechaPubNoticiaInf);
-$fechaExpNoticia=explode("-", $fechaNoticia[0]);
-
 //LISTA DE GALERIA DE FOTOS
-$rst_listagaleria=mysql_query("SELECT * FROM stp_galeria WHERE id<>$idnoticia ORDER BY fecha_publicacion DESC", $conexion);
+$rst_listagaleria=mysql_query("SELECT * FROM stp_galeria ORDER BY fecha_publicacion DESC", $conexion);
 
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title><?php echo stripslashes($noticia_titulo); ?> | <?php echo $web_nombre; ?></title>
+<title>Galería de Fotos | <?php echo $web_nombre; ?></title>
 <base href="<?php echo $web; ?>" />
 
 <?php require_once("wg-header-script.php"); ?>
-
-<!-- ROYAL SLIDER CSS -->
-<link href="libs/royalslider/royalslider.css" rel="stylesheet">
-<link href="libs/royalslider/skins/default/rs-default.css" rel="stylesheet">
 
 </head>
 
@@ -51,47 +28,15 @@ $rst_listagaleria=mysql_query("SELECT * FROM stp_galeria WHERE id<>$idnoticia OR
 
 	<div class="interior limpiar">
 
-        <div id="section_news" class="galeria">
+        <div id="section_news" class="galeria-fotos galeria">
             	
             <div class="scnw_item">
 
                 <div class="scnwi_categoria">
-                    <div class="scnwic_color bggaleria"></div>
-                    <div class="scnwic_nombre clgaleria">Galería de Fotos</div>
+                    <h2>Galería de Fotos</h2>
                 </div>
             	
-                <div class="scnwi_detalles">
-                	
-                    <h2><?php echo $noticia_titulo; ?></h2>
-                    
-                </div>
-                
-                <div class="scnwi_fecha_social">
-                	
-                    <div class="scnwifsc_fecha">
-                    	<?php echo nombreFechaTotal($fechaExpNoticia[0],$fechaExpNoticia[1],$fechaExpNoticia[2]); ?>
-                    </div>
-                    
-                </div><!-- FIN SECTION NEWS ITEM FECHA SOCIAL -->
-                
-                <div class="scnwi_imagen">
-                    
-                    <div id="galeria-noticia" class="royalSlider rsDefault">
-                        <?php while($fila_fotos=mysql_fetch_array($rst_fotos_noticia)){
-                                $slide_imagen=$fila_fotos["imagen"];
-                                $slide_imagen_carpeta=$fila_fotos["imagen_carpeta"];
-                        ?>
-                        <a class="rsImg" href="imagenes/galeria/<?php echo $slide_imagen_carpeta."".$slide_imagen; ?>">
-                            <img width="96" height="72" class="rsTmb" src="imagenes/galeria/<?php echo $slide_imagen_carpeta."thumb/".$slide_imagen; ?>">
-                        </a>
-                        <?php } ?>
-                    </div>
-
-                </div>
-
                 <div class="scnwi_contenido galeria-lista">
-
-                    <h2>Lista de Galerías de Fotos</h2>
 
                     <?php while($fila_listagaleria=mysql_fetch_array($rst_listagaleria)){
                             $LGaleria_id=$fila_listagaleria["id"];

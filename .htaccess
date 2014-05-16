@@ -349,6 +349,7 @@ RewriteRule ^edicion/digital/([0-9]*)/$                   /edimpresa.php?id=$1
 RewriteRule ^edicion$                                     /edimpresa-anterior.php
 RewriteRule ^edicion/virtual/([0-9]*)/(.*)$               /edvirtual.php?id=$1&url=$2
 RewriteRule ^galeria/([0-9]*)-(.*)$                       /galeria-select.php?id=$1&url=$2
+RewriteRule ^galeria-fotos$                       /galeria-lista.php
 RewriteRule ^tag/([0-9]*)-(.*)$                           /etiquetas.php?id=$1&url=$2
 RewriteRule ^panel@sutep/$                             		/panel@sutep/login.php
 

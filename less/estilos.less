@@ -368,7 +368,7 @@ nav{ width:100%; }
 
 	#header_menu{ 
 		float:left; 
-		margin:65px 0 0 0; 
+		margin:60px 0 0 30px; 
 
 		nav{
 
@@ -386,15 +386,24 @@ nav{ width:100%; }
 					float:left;
 
 					a{ 
-						padding:5px 8px; 
-						float:left; 
-						clear:both; 
-						color:#000; 
-						font-size:12px;
+						padding: 10px 20px;
+						float: left;
+						clear: both;
+						color: #000;
+						font-size: 14px;
+						font-weight: bold;
 					}
 
 					a:hover{ 
-						text-decoration:underline;
+						text-decoration: none;
+						background: #f00;
+						border-radius: 5px;
+						color: #fff;
+						font-weight: bold;
+						-webkit-transition: all 0.5s ease;
+						-moz-transition: all 0.5s ease;
+						-o-transition: all 0.5s ease;
+						transition: all 0.5s ease;
 					}
 
 					a.cat-destac{
@@ -556,8 +565,8 @@ nav{ width:100%; }
 #section_news .scnw_item .scnwi_categoria{ width:620px; float:left; position:absolute; z-index:3; top:0; left:0; padding:10px 0 0 0; }
 #section_news .scnw_item .scnwi_categoria .scnwic_color{ width:100px; height:12px; margin:7px 0 0 0; float:left; }
 
-#section_news .scnw_item .scnwi_categoria .bgeconomia{ background-color:#EC1C24 !important; }
-#section_news .scnw_item .scnwi_categoria .cleconomia{ color:#EC1C24; }
+#section_news .scnw_item .scnwi_categoria .bgpedagogicos{ background-color:#EC1C24 !important; }
+#section_news .scnw_item .scnwi_categoria .clpedagogicos{ color:#EC1C24; }
 #section_news .scnw_item .scnwi_categoria .bginternacional{ background-color:#EC1C24 !important; }
 #section_news .scnw_item .scnwi_categoria .clinternacional{ color:#EC1C24; }
 #section_news .scnw_item .scnwi_categoria .bggaleria{ background-color:#910D1A !important; }
@@ -706,6 +715,63 @@ nav{ width:100%; }
 				font-size: 32px !important;
 			}
 		}
+	}
+}
+
+.galeria-fotos{
+
+	.scnwi_categoria{
+		position: relative !important;
+
+		h2{
+			font-size: 26px;
+			font-weight: bold;
+		}	
+	}	
+}
+
+.galeria-lista{
+
+	h2{
+		font-size: 20px;
+	}
+
+	article{
+		width: 280px;
+		height: 200px;
+		float: left;
+		display: block;
+		margin: 10px 13px;
+		position: relative;
+		border: 5px solid #333;
+		overflow: hidden;
+
+		.img{
+
+			img{
+				width: 280px;
+				height: 200px;
+			}
+		}
+
+		.detalles{
+			position: absolute;
+			padding: 0 10px;
+			height: 65px;
+			width: 260px;
+			top: 0;
+			background: url("../imagenes/fondo-noticia-trans.png");
+
+			h3{
+				font-size: 14px;
+				font-weight: bold;
+
+				a{
+					color: #fff;
+				}
+			}
+		}
+
 	}
 }
 
@@ -890,10 +956,46 @@ nav{ width:100%; }
 
 
 /* SECTION SIDEBAR ITEMS - SALUDOS */
-#section_sidebar .scsdb_item .scsdbi_contenido #wg_saludos{ width:270px; float:left; background-color:#FFFFE8; border:1px solid #FFFF00; padding:10px 9px; font-size:12px; line-height:120% !important; }
-#section_sidebar .scsdb_item .scsdbi_contenido #wg_saludos.scsdbic_ctdSaludos{ width:270px; float:left; }
-#section_sidebar .scsdb_item .scsdbi_contenido .scsdbic_btnSaludos{ width:290px; float:left; }
-#section_sidebar .scsdb_item .scsdbi_contenido .scsdbic_btnSaludos a{ display:block; float:right; background-color:#FFFF00; color:#000; padding:5px 30px; font-weight:bold; font-style:italic;}
+#section_sidebar {
+
+	.scsdb_item {
+
+		.scsdbi_contenido {
+
+			#wg_saludos{ 
+				width:270px; 
+				float:left; 
+				background-color:#FFFFE8; 
+				border:1px solid #FFFF00; 
+				padding:10px 9px; 
+				font-size:12px; 
+				line-height:120% !important; 
+			}
+
+			#wg_saludos.scsdbic_ctdSaludos{ 
+				width:270px; 
+				float:left;
+			}
+
+			.scsdbic_btnSaludos{ 
+				width:290px; 
+				float:left;
+
+				a{ 
+					display:block; 
+					float:right; 
+					background-color:#FFFF00; 
+					color:#000; 
+					padding:5px 30px; 
+					font-weight:bold; 
+					font-style:italic;
+				}
+			}
+		}
+	}
+}
+
+
 
 /* SECTION SIDEBAR ITEMS - VIDEOS */
 #section_sidebar .scsdb_item .scsdbi_contenido #scsdbic_video_select{ width:290px; height:245px; float:left; position:relative; margin:0 0 5px 0; }
