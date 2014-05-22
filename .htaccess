@@ -342,6 +342,7 @@ FileETag None
 RewriteRule ^noticias$                                    /noticias.php
 RewriteRule ^noticia/([0-9]*)-(.*)$                       /nota.php?id=$1&url=$2
 RewriteRule ^institucional$                               /nota-institucional.php
+RewriteRule ^borrador$                                    /nota-borrador.php
 RewriteRule ^tv$                                         /videos.php
 RewriteRule ^tv/([0-9]*)-(.*)$                           /videos-select.php?id=$1&url=$2
 RewriteRule ^seccion/([0-9]*)/(.*)$                       /categoria.php?id=$1&url=$2
