@@ -4,14 +4,14 @@
     	
         <div id="footer_izq">
         	
-            <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-            <p>E-mail : escribanos@sutep.org.pe</p>
-            <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-            <p>Telf.: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+            <p>Jr. Camaná 550 - Lima Centro</p>
+            <p>(Alt. cdra. 8 de la Av. Emancipación)</p>
+            <p>Tel: (+511) 427-66-77</p>
+            <p>Email: info@sutep.org.pe</p>
             <p>&nbsp;</p>
             <p>Resolución Recomendada 1024x768</p>
             <p>&nbsp;</p>
-            <p>© 2013. Todos los derechos reservados.</p>
+            <p>© 2014. Todos los derechos reservados.</p>
             
         </div><!-- FIN FOOTER IZQUIERDA -->
         
