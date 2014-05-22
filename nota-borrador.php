@@ -6,7 +6,7 @@ include("panel@sutep/conexion/funciones.php");
 $wg_slide=false;
 
 //NOTICIA
-$rst_noticia=mysql_query("SELECT * FROM stp_secciones WHERE id=1;", $conexion);
+$rst_noticia=mysql_query("SELECT * FROM stp_secciones WHERE id=2;", $conexion);
 $fila_noticia=mysql_fetch_array($rst_noticia);
 $noticia_titulo=$fila_noticia["titulo"];
 $noticia_categoria=$fila_noticia["categoria"];
