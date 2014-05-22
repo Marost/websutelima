@@ -36,10 +36,12 @@ $rst_menu_superior=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id>0 A
                 <nav>
                     <ul>
                         <li><a href="/" title="Inicio">Inicio</a></li>
-                        <li><a href="#">Noticias</a></li>
-                        <li><a href="#">Pedagógicos</a></li>
-                        <li><a href="galeria-fotos">Galería</a></li>
+                        <li><a href="/seccion/2/noticias">Noticias</a></li>
+                        <li><a href="/seccion/7/pedagogicos">Pedagógicos</a></li>
+                        <li><a href="borrador">Borrador</a></li>
+                        <li><a href="#">Pronunciaciones</a></li>
                         <li><a href="institucional">Institucional</a></li>
+                        <li><a href="galeria-fotos">Galería</a></li>                        
                     </ul>
                 </nav>
             
