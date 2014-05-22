@@ -136,5 +136,21 @@ $rst_galeria_prin=mysql_query("SELECT * FROM stp_galeria WHERE fecha_publicacion
         
     </div>
     <!-- FIN NOS ESCRIBEN -->
+
+    <!-- NOS ESCRIBEN -->
+    <div class="scsdb_item">
+        
+        <div class="scsdbi_cabecera">ENLACES DE INTERES</div>
+        
+        <div class="scsdbi_contenido scsdbic_fdBlanco scsdbic_fnt12 scsdbic_lh120">
+            <p><a target="_blank" href="http://sutelima.blogspot.com/" class="todas_cartas">www.sutelima.blogspot.com</a></p>
+            <p><a target="_blank" href="http://sutevisector.blogspot.com/" class="todas_cartas">www.sutevisector.blogspot.com</a></p>
+            <p><a target="_blank" href="http://sute14sector.blogspot.com/" class="todas_cartas">www.sute14sector.blogspot.com</a></p>
+            <p><a target="_blank" href="http://sutenovenosector.blogspot.com/" class="todas_cartas">www.sutenovenosector.blogspot.com</a></p>
+            <p><a target="_blank" href="http://sutexvsjl.blogspot.com/" class="todas_cartas">www.sutexvsjl.blogspot.com</a></p>
+        </div>
+        
+    </div>
+    <!-- FIN NOS ESCRIBEN -->
     
 </div><!-- FIN SECTION SIDEBAR -->
