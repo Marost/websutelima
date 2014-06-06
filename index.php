@@ -74,11 +74,13 @@ $rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publica
                     </h2>                    
                 </div>
                 
+                <?php if($noticiaInf_imagen<>""){ ?>
                 <div class="scnwi_imagen">
                 	<a href="<?php echo $noticiaInf_urlWeb; ?>">
                     	<img src="<?php echo $noticiaInf_urlImg; ?>" alt="<?php echo $noticiaInf_titulo; ?>">
                     </a>
                 </div>
+                <?php } ?>
 
                 <div class="scnwi_contenido">
                     <?php echo primerParrafo($noticiaInf_contenido); ?>
