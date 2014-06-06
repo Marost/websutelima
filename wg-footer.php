@@ -7,7 +7,7 @@
             <p>Jr. Camaná 550 - Lima Centro</p>
             <p>(Alt. cdra. 8 de la Av. Emancipación)</p>
             <p>Tel: (+511) 427-66-77</p>
-            <p>Email: info@sutep.org.pe</p>
+            <p>Email: secretariageneral@sutelima.org</p>
             <p>&nbsp;</p>
             <p>Resolución Recomendada 1024x768</p>
             <p>&nbsp;</p>
@@ -132,3 +132,14 @@ jGalVid(document).on("ready", function(){
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <script src="js/html5.js"></script>
 <![endif]-->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-20229980-27', 'sutelima.org');
+  ga('send', 'pageview');
+
+</script>
