@@ -105,31 +105,6 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                     </div>
 
                     <div class="formRow">
-                        <div class="grid3"><label>Tipo de noticia: </label></div>
-                        <div class="grid9 yes_no">
-                            <div class="floatL mr10">Destacada
-                                <input type="radio" name="tipo_noticia" value="not_destacada" /></div>
-                            <div class="floatL mr10">Normal
-                                <input type="radio" name="tipo_noticia" value="not_normal" checked="checked" /></div>
-                        </div>
-                    </div>
-
-                    <div class="formRow">
-                        <div class="grid3"><label>Etiquetas:</label></div>
-                        <div class="grid9">
-                            <select class="selectMultiple" multiple="multiple" tabindex="6" name="tags[]">
-                                <option></option>
-                                <?php while($fila_tags=mysql_fetch_array($rst_tags)){
-                                        $notTag_id=$fila_tags["id"];
-                                        $notTag_nombre=$fila_tags["nombre"];
-                                ?>
-                                <option value="<?php echo $notTag_id; ?>"><?php echo $notTag_nombre; ?></option>
-                                <?php } ?>
-                            </select>  
-                        </div>             
-                    </div>
-
-                    <div class="formRow">
                         <div class="grid3"><label>Fecha de publicación:</label></div>
                         <div class="grid4"><input type="text" class="datepicker" name="pub_fecha" value="<?php echo $pub_fecha; ?>" /></div>
                     </div>
@@ -144,6 +119,8 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                         <div class="body" align="center">
                             <a href="lista.php" class="buttonL bBlack">Cancelar</a>
                             <input type="submit" class="buttonL bGreen" name="btn-guardar" value="Guardar datos">
+                            <input type="hidden" name="tags" value="">
+                            <input type="hidden" name="tipo_noticia" value="not_normal">
                         </div>
                     </div>
                     

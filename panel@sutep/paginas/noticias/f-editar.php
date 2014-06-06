@@ -135,42 +135,6 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                     </div>
 
                     <div class="formRow">
-                        <div class="grid3"><label>Tipo de noticia: </label></div>
-                        <div class="grid9 yes_no">
-                            <div class="floatL mr10">Destacada
-                                <?php if($nota_destacada==1){ ?>
-                                <input type="radio" name="tipo_noticia" value="not_destacada" checked /></div>
-                                <?php }else{ ?>
-                                <input type="radio" name="tipo_noticia" value="not_destacada" /></div>
-                                <?php } ?>                            
-                            <div class="floatL mr10">Normal
-                                <?php if($nota_destacada<>1){ ?>
-                                <input type="radio" name="tipo_noticia" value="not_normal" checked /></div>
-                                <?php }else{ ?>
-                                <input type="radio" name="tipo_noticia" value="not_normal" /></div>
-                                <?php } ?>
-                        </div>
-                    </div>
-
-                    <div class="formRow">
-                        <div class="grid3"><label>Etiquetas:</label></div>
-                        <div class="grid9">
-                            <select class="selectMultiple" multiple="multiple" tabindex="6" name="tags[]">
-                                <?php while($fila_tags=mysql_fetch_array($rst_tags)){
-                                        $tags_id=$fila_tags["id"];
-                                        $tags_nombre=$fila_tags["nombre"];
-                                        if(in_array($tags_id, $tags)){
-                                ?>
-                                <option value="<?php echo $tags_id; ?>" selected><?php echo $tags_nombre; ?></option>
-                                <?php }else{ ?>
-                                <option value="<?php echo $tags_id; ?>"><?php echo $tags_nombre; ?></option>
-                                <?php }}  ?>
-
-                            </select>  
-                        </div>             
-                    </div>
-
-                    <div class="formRow">
                         <div class="grid3"><label>Fecha de publicación:</label></div>
                         <div class="grid4"><input type="text" class="datepicker" name="pub_fecha" value="<?php echo $nota_pub_fecha; ?>" /></div>
                     </div>
@@ -192,6 +156,8 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                         <div class="body" align="center">
                             <a href="lista.php" class="buttonL bBlack">Cancelar</a>
                             <input type="submit" class="buttonL bGreen" name="btn-guardar" value="Guardar datos">
+                            <input type="hidden" name="tags" value="">
+                            <input type="hidden" name="tipo_noticia" value="not_normal">
                         </div>
                     </div>
                     
