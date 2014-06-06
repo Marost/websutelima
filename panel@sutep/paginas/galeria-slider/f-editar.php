@@ -13,6 +13,7 @@ $rst_nota=mysql_query("SELECT * FROM ".$tabla_suf."_galeria_slide WHERE id=$id_u
 $fila_nota=mysql_fetch_array($rst_nota);
 
 //VARIABLES
+$nota_titulo=$fila_nota["titulo"];
 $nota_imagen=$fila_nota["imagen"];
 $nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
 
@@ -66,6 +67,11 @@ $nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
                 <div class="widget fluid">
                     
                     <div class="whead"><h6>Editar</h6></div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Titulo:</label></div>
+                        <div class="grid9"><input type="text" name="titulo" value="<?php echo $nota_titulo; ?>" /></div>
+                    </div>
                     
                     <div class="formRow">
                         <div class="grid3"><label>Imagen:</label> </div>
@@ -85,7 +91,7 @@ $nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
 
                     <div class="formRow">
                         <div class="body" align="center">
-                            <a href="lista.php?jugador=<?php echo $jugador_id; ?>" class="buttonL bBlack">Cancelar</a>
+                            <a href="lista.php?not=<?php echo $noticia; ?>" class="buttonL bBlack">Cancelar</a>
                             <input type="submit" class="buttonL bGreen" name="btn-guardar" value="Guardar datos">
                         </div>
                     </div>

@@ -6,26 +6,23 @@ require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
 
 //DECLARACION DE VARIABLES
 $id=$_REQUEST["id"];
-$nombre=$_POST["nombre"];
-$noticia=$_POST["not"];
+$titulo=htmlspecialchars($_POST["titulo"]);
+$noticia=$_REQUEST["not"];
 
 //IMAGEN
-if($_POST['uploader_0_tmpname']==""){
-	$imagen=$_POST["imagen_actual"];
-	$carpeta=$_POST["carpeta"];
+if($_POST['uploader_galeria_0_tmpname']==""){
+	$imagen=$_POST["imagen"];
+	$carpeta=$_POST["imagen_carpeta"];
 }else{
 	$carpeta=fechaCarpeta()."/";
-	$imagen=$_POST['uploader_0_tmpname'];
+	$imagen=$_POST['uploader_galeria_0_tmpname'];
 	$thumb=PhpThumbFactory::create("../../../imagenes/galeria/".$imagen_carpeta."".$imagen."");
 	$thumb->adaptiveResize(110,110);
 	$thumb->save("../../../imagenes/galeria/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 }
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_galeria_slide SET 
-	imagen='$imagen', 
-	imagen_carpeta='$imagen_carpeta',
-	noticia=$noticia WHERE id=$id;", $conexion);
+$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_galeria_slide SET titulo='$titulo', imagen='$imagen', imagen_carpeta='$imagen_carpeta',	noticia=$noticia WHERE id=$id", $conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
