@@ -37,9 +37,15 @@ $rst_listagaleria=mysql_query("SELECT * FROM stp_galeria WHERE id<>$idnoticia OR
 
 <?php require_once("wg-header-script.php"); ?>
 
-<!-- ROYAL SLIDER CSS -->
-<link href="libs/royalslider/royalslider.css" rel="stylesheet">
-<link href="libs/royalslider/skins/default/rs-default.css" rel="stylesheet">
+<!-- CUTE SLIDER -->
+<link rel="stylesheet" href="libs/cuteslider/style/slider-style.css" type="text/css" />
+<style>
+.wrapper{
+    margin:0 auto;
+    width:950px;
+    position: relative;
+}
+</style>
 
 </head>
 
@@ -76,15 +82,44 @@ $rst_listagaleria=mysql_query("SELECT * FROM stp_galeria WHERE id<>$idnoticia OR
                 
                 <div class="scnwi_imagen">
                     
-                    <div id="galeria-noticia" class="royalSlider rsDefault">
-                        <?php while($fila_fotos=mysql_fetch_array($rst_fotos_noticia)){
-                                $slide_imagen=$fila_fotos["imagen"];
-                                $slide_imagen_carpeta=$fila_fotos["imagen_carpeta"];
-                        ?>
-                        <a class="rsImg" href="imagenes/galeria/<?php echo $slide_imagen_carpeta."".$slide_imagen; ?>">
-                            <img width="96" height="72" class="rsTmb" src="imagenes/galeria/<?php echo $slide_imagen_carpeta."thumb/".$slide_imagen; ?>">
-                        </a>
-                        <?php } ?>
+                    <div class="wrapper" id="wrapper">
+                        <div id="slider" class="cute-slider" data-width="610" data-height="400" data-force="" data-shuffle="false">
+                            <ul data-type="slides">
+
+                                <?php while($fila_fotos=mysql_fetch_array($rst_fotos_noticia)){
+                                    $slide_titulo=$fila_fotos["titulo"];
+                                    $slide_imagen=$fila_fotos["imagen"];
+                                    $slide_imagen_carpeta=$fila_fotos["imagen_carpeta"];
+                                    $slide_imagen_orden=$fila_fotos["orden"];
+
+                                    //URL
+                                    $Slider_UrlImg=$web."imagenes/galeria/".$slide_imagen_carpeta."".$slide_imagen;
+                                    $Slider_UrlImgThumb=$web."imagenes/galeria/".$slide_imagen_carpeta."thumb/".$slide_imagen;
+                                ?>
+                                    <?php if($slide_imagen_orden==0){ ?>
+                                    <li data-delay="4" data-trans3d="tr4,tr21,tr62" data-trans2d="tr5,tr23,tr30">
+                                        <img src="<?php echo $Slider_UrlImg; ?>" data-thumb="<?php echo $Slider_UrlImgThumb; ?>"/>
+                                        <div data-type="info" data-align="bottom" class="info1">
+                                            <?php echo $slide_titulo; ?>
+                                        </div>
+                                    </li>
+                                    <?php } ?>
+                                    <?php if($slide_imagen_orden>0){ ?>
+                                    <li data-delay="4" data-trans3d="tr4,tr21,tr62" data-trans2d="tr5,tr23,tr30">
+                                        <img src="libs/cuteslider/cute-theme/blank.jpg" data-src="<?php echo $Slider_UrlImg; ?>" data-thumb="<?php echo $Slider_UrlImgThumb; ?>"/>
+                                        <div data-type="info" data-align="bottom" class="info1">
+                                            <?php echo $slide_titulo; ?>
+                                        </div>
+                                    </li>
+                                    <?php } ?>
+                                <?php } ?>
+
+                            </ul>
+                            <ul data-type="controls">           
+                                <li data-type="bartimer"> </li>
+                                <li data-type="slideinfo"> </li>
+                            </ul>
+                        </div>
                     </div>
 
                 </div>
@@ -126,37 +161,19 @@ $rst_listagaleria=mysql_query("SELECT * FROM stp_galeria WHERE id<>$idnoticia OR
 
 <?php require_once("wg-footer.php"); ?>
 
-<!-- ROYAL SLIDER JS -->
-<script src="libs/royalslider/jquery-1.8.3.min.js"></script>
-<script src="libs/royalslider/jquery.royalslider.min.js"></script>
+<!-- CUTE SLIDER -->
+<script src="libs/cuteslider/js/modernizr.js" ></script>
+<script src="libs/cuteslider/js/cute/cute.slider.js" ></script>
+<script src="libs/cuteslider/js/cute/cute.transitions.all.js" ></script>
+<script src="libs/cuteslider/js/cute/cute.gallery.plugin.js" ></script>
 <script>
-jQuery(document).ready(function($) {
-    $('#galeria-noticia').royalSlider({
-        fullscreen: {
-          enabled: false
-        },
-        controlNavigation: 'thumbnails',
-        autoScaleSlider: true, 
-        autoScaleSliderWidth: 960,     
-        autoScaleSliderHeight: 850,
-        loop: true,
-        imageScaleMode: 'fit-if-smaller',
-        navigateByClick: true,
-        numImagesToPreload:2,
-        arrowsNav:true,
-        arrowsNavAutoHide: true,
-        arrowsNavHideOnTouch: true,
-        keyboardNavEnabled: true,
-        fadeinLoadedSlide: true,
-        globalCaption: true,
-        globalCaptionInside: false,
-        thumbs: {
-          appendSpan: true,
-          firstMargin: true,
-          paddingBottom: 4
-        }
-    });
-});
+    var slider = new Cute.Slider();
+    var gallery = new Cute.CuteGallery();
+    
+    slider.setup("slider" , "wrapper"); 
+    gallery.setup(slider);
+    
+    slider.pause();
 </script>
 
 <!-- AddThis -->
