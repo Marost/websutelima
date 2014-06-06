@@ -42,33 +42,6 @@ $nota_clave=$fila_nota["clave"];
     
     <?php require_once("../../w-sidebarmenu.php"); ?>
     
-    <!-- Secondary nav -->
-    <div class="secNav">
-        <div class="secWrapper">
-            <div class="secTop">
-                <div class="balance">                    
-                </div>
-            </div>
-            
-            <div class="divider"><span></span></div>
-            
-            <!-- Sidebar subnav -->
-            <ul class="subNav">
-                <li><a href="../empresa/lista.php" title=""><span class="icos-frames"></span>Empresa</a></li>
-                <li><a href="../entrevistas/lista.php" title=""><span class="icos-frames"></span>Entrevistas</a></li>
-                <li><a href="../galeria/lista.php" title=""><span class="icos-frames"></span>Galería de Fotos</a></li>
-                <li><a href="../jugadores/lista.php" title=""><span class="icos-frames"></span>Jugadores</a></li>
-                <li><a href="../nosotros/lista.php" title=""><span class="icos-frames"></span>Nosotros</a></li>
-                <li><a href="../noticias/lista.php" title=""><span class="icos-frames"></span>Noticias</a></li>
-                <li><a href="../posiciones/lista.php" title="" ><span class="icos-frames"></span>Posiciones</a></li>
-                <li><a href="lista.php" class="this" title="" ><span class="icos-frames"></span>Usuarios</a></li>
-                <li><a href="../videos/lista.php" title="" ><span class="icos-frames"></span>Videos</a></li>
-            </ul>
-            
-            <div class="divider"><span></span></div>
-                    
-        </div> 
-    </div>
 </div>
 <!-- Sidebar ends -->    
 	

@@ -18,6 +18,65 @@ $pub_hora=date("H:i:s");
 
 <?php require_once("../../w-scripts.php"); ?>
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+<script type="text/javascript">
+    var jValidar = jQuery.noConflict();
+
+    jValidar(document).on("ready", function(){
+        
+        jValidar("#validar-email").on("click", function(){
+            jValidar.ajax({
+                type: "POST",
+                data: "act=email&email="+jValidar("#email").val(),
+                url: "validador.php",
+                success: function(responseText){
+                    if(responseText==1){
+                        jValidar("#notificacion").html("<div id='notificacion-validador' class='nNote nWarning'><p>El email ya existe</p></div>").text();
+                    } else if (responseText==0){
+                        jValidar("#notificacion").html("<div id='notificacion-validador' class='nNote nSuccess'><p>El email está disponible</p></div>").text();
+                    }
+                }
+            });
+        });
+
+        jValidar("#validar-usuario").on("click", function(){
+            jValidar.ajax({
+                type: "POST",
+                data: "act=usuario&usuario="+jValidar("#usuario").val(),
+                url: "validador.php",
+                success: function(responseText){
+                    if(responseText==1){
+                        jValidar("#notificacion").html("<div id='notificacion-validador' class='nNote nWarning'><p>El usuario ya existe</p></div>").text();
+                    } else if (responseText==0){
+                        jValidar("#notificacion").html("<div id='notificacion-validador' class='nNote nSuccess'><p>El usuario está disponible</p></div>").text();
+                    }
+                }
+            });
+        });
+
+    });
+
+function validate(){
+    if(jValidar("#usuario").val() === ''){
+        alert("Debe proporcionar un nombre usuario");
+        jValidar("#usuario").focus();
+        return false;
+    }
+    if(jValidar("#clave").val() === ''){
+        alert("Debe proporcionar una contraseña");
+        jValidar("#clave").focus();
+        return false;
+    }
+    if(jValidar("#email").val() === ''){
+        alert("Debe proporcionar un email");
+        jValidar("#email").focus();
+        return false;
+    }
+return true;
+}
+
+</script>
+
 </head>
 
 <body>
@@ -32,33 +91,6 @@ $pub_hora=date("H:i:s");
     
     <?php require_once("../../w-sidebarmenu.php"); ?>
     
-    <!-- Secondary nav -->
-    <div class="secNav">
-        <div class="secWrapper">
-            <div class="secTop">
-                <div class="balance">                    
-                </div>
-            </div>
-            
-            <div class="divider"><span></span></div>
-            
-            <!-- Sidebar subnav -->
-            <ul class="subNav">
-                <li><a href="../empresa/lista.php" title=""><span class="icos-frames"></span>Empresa</a></li>
-                <li><a href="../entrevistas/lista.php" title=""><span class="icos-frames"></span>Entrevistas</a></li>
-                <li><a href="../galeria/lista.php" title=""><span class="icos-frames"></span>Galería de Fotos</a></li>
-                <li><a href="../jugadores/lista.php" title=""><span class="icos-frames"></span>Jugadores</a></li>
-                <li><a href="../nosotros/lista.php" title=""><span class="icos-frames"></span>Nosotros</a></li>
-                <li><a href="../noticias/lista.php" title=""><span class="icos-frames"></span>Noticias</a></li>
-                <li><a href="../posiciones/lista.php" title="" ><span class="icos-frames"></span>Posiciones</a></li>
-                <li><a href="lista.php" class="this" title="" ><span class="icos-frames"></span>Usuarios</a></li>
-                <li><a href="../videos/lista.php" title="" ><span class="icos-frames"></span>Videos</a></li>
-            </ul>
-            
-            <div class="divider"><span></span></div>
-                    
-        </div> 
-    </div>
 </div>
 <!-- Sidebar ends -->    
 	
@@ -78,12 +110,15 @@ $pub_hora=date("H:i:s");
     <!-- Main content -->
     <div class="wrapper">
 
+        <div id="notificacion"></div>
+        
         <form id="submit-form" class="main" method="POST" action="s-guardar.php">
 
             <fieldset>
                 <div class="widget fluid">
                     
                     <div class="whead"><h6>Agregar</h6></div>
+                    <input name="do" type="hidden" value="login" />
                     
                     <div class="formRow">
                         <div class="grid3"><label>Nombre:</label></div>
@@ -97,23 +132,25 @@ $pub_hora=date("H:i:s");
 
                     <div class="formRow">
                         <div class="grid3"><label>Email:</label></div>
-                        <div class="grid9"><input type="email" name="email" /></div>
+                        <div class="grid5"><input type="email" name="email" id="email" /></div>
+                        <div class="grid2"><a class="buttonS bBlue" id="validar-email">Validar email</a></div>
                     </div>
 
                     <div class="formRow">
                         <div class="grid3"><label>Usuario:</label></div>
-                        <div class="grid9"><input type="text" name="usuario" /></div>
+                        <div class="grid5"><input type="text" name="usuario" id="usuario" /></div>
+                        <div class="grid2"><a class="buttonS bBlue" id="validar-usuario">Validar usuario</a></div>
                     </div>
 
                     <div class="formRow">
                         <div class="grid3"><label>Contraseña:</label></div>
-                        <div class="grid9"><input type="password" name="clave" /></div>
+                        <div class="grid5"><input type="password" name="clave" id="clave" /></div>
                     </div>
                     
                     <div class="formRow">
                         <div class="body" align="center">
                             <a href="lista.php" class="buttonL bBlack">Cancelar</a>
-                            <input type="submit" class="buttonL bGreen" name="btn-guardar" value="Guardar datos">
+                            <input id="enviar-datos" type="submit" class="buttonL bGreen" name="btn-guardar" value="Guardar datos">
                         </div>
                     </div>
                     
