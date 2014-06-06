@@ -342,15 +342,15 @@ FileETag None
 RewriteRule ^noticias$                                    /noticias.php
 RewriteRule ^noticia/([0-9]*)-(.*)$                       /nota.php?id=$1&url=$2
 RewriteRule ^institucional$                               /nota-institucional.php
-RewriteRule ^borrador$                                    /nota-borrador.php
-RewriteRule ^tv$                                         /videos.php
-RewriteRule ^tv/([0-9]*)-(.*)$                           /videos-select.php?id=$1&url=$2
+RewriteRule ^percentil$                                    /nota-borrador.php
+RewriteRule ^tv$                                          /videos.php
+RewriteRule ^tv/([0-9]*)-(.*)$                            /videos-select.php?id=$1&url=$2
 RewriteRule ^seccion/([0-9]*)/(.*)$                       /categoria.php?id=$1&url=$2
 RewriteRule ^edicion/digital/([0-9]*)/$                   /edimpresa.php?id=$1
 RewriteRule ^edicion$                                     /edimpresa-anterior.php
 RewriteRule ^edicion/virtual/([0-9]*)/(.*)$               /edvirtual.php?id=$1&url=$2
 RewriteRule ^galeria/([0-9]*)-(.*)$                       /galeria-select.php?id=$1&url=$2
-RewriteRule ^galeria-fotos$                       /galeria-lista.php
+RewriteRule ^galeria-fotos$                               /galeria-lista.php
 RewriteRule ^tag/([0-9]*)-(.*)$                           /etiquetas.php?id=$1&url=$2
 RewriteRule ^panel@sutep/$                             		/panel@sutep/login.php
 
