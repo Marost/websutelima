@@ -35,7 +35,7 @@ $rst_menu_superior=mysql_query("SELECT * FROM stp_noticia_categoria WHERE id>0 A
                         <li><a href="/" title="Inicio">Inicio</a></li>
                         <li><a href="/seccion/2/noticias">Noticias</a></li>
                         <li><a href="/seccion/7/pedagogicos">Pedagógicos</a></li>
-                        <li><a href="percentil">Percentil</a></li>
+                        <li><a href="/seccion/9/percentil">Percentil</a></li>
                         <li><a href="/seccion/8/pronunciamientos">Pronunciamientos</a></li>
                         <li><a href="institucional">Institucional</a></li>
                         <li><a href="galeria-fotos">Galería</a></li>                        
