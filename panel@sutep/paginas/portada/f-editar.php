@@ -12,15 +12,12 @@ $rst_nota=mysql_query("SELECT * FROM ".$tabla_suf."_portada WHERE id=$id_url;", 
 $fila_nota=mysql_fetch_array($rst_nota);
 
 //VARIABLES
-$nota_titulo=$fila_nota["titulo"];
-$nota_edicion=$fila_nota["num_edicion"];
+$nota_fecha=$fila_nota["fecha"];
 $nota_imagen=$fila_nota["imagen"];
 $nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
-
-/* FECHA */
-$nota_fecha_pub=explode(" ", $fila_nota["fecha_publicacion"]);
-$nota_pub_fecha=$nota_fecha_pub[0];
-$nota_pub_hora=$nota_fecha_pub[1];
+$nota_pdf=$fila_nota["pdf"];
+$nota_pdf_carpeta=$fila_nota["pdf_carpeta"];
+$nota_contenido=$fila_nota["revista"];
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -46,7 +43,7 @@ $nota_pub_hora=$nota_fecha_pub[1];
     <?php require_once("../../w-sidebarmenu.php"); ?>
     
 </div><!-- Sidebar ends -->    
-	
+    
     
 <!-- Content begins -->
 <div id="content">
@@ -71,39 +68,31 @@ $nota_pub_hora=$nota_fecha_pub[1];
                     <div class="whead"><h6>Editar</h6></div>
                     
                     <div class="formRow">
-                        <div class="grid3"><label>Titulo:</label></div>
-                        <div class="grid4"><input type="text" name="titulo" value="<?php echo $nota_titulo; ?>" /></div>
-                    </div>
-
-                    <div class="formRow">
-                        <div class="grid3"><label>Número Edición:</label></div>
-                        <div class="grid4"><input type="text" name="num_edicion" value="<?php echo $nota_edicion; ?>" /></div>
+                        <div class="grid3"><label>Fecha:</label></div>
+                        <div class="grid4"><input type="text" class="datepicker" name="pub_fecha" value="<?php echo $nota_fecha; ?>" /></div>
                     </div>
 
                     <div class="formRow">
                         <div class="grid3"><label>Imagen:</label> </div>
                         <div class="grid9">
                             <div class="floatL">
-                                <a href="../../../imagenes/revista/<?php echo $nota_imagen; ?>" class="lightbox">
-                                    <img src="../../../imagenes/revista/<?php echo $nota_imagen; ?>" width="100" >
+                                <a href="../../../imagenes/upload/<?php echo $nota_imagen_carpeta."".$nota_imagen; ?>" class="lightbox">
+                                    <img src="../../../imagenes/upload/<?php echo $nota_imagen_carpeta."".$nota_imagen; ?>" width="100" >
                                 </a>
                             </div>
                             <div class="floarL width60 margin1020">    
                                 <input type="file" class="styled" id="fileInput" name="fileInput" />
                                 <input type="hidden" name="imagen" value="<?php echo $nota_imagen; ?>">
+                                <input type="hidden" name="imagen_carpeta" value="<?php echo $nota_imagen_carpeta; ?>">
                             </div>
                         </div>
                     </div>
 
                     <div class="formRow">
-                        <div class="grid3"><label>Fecha de publicación:</label></div>
-                        <div class="grid4"><input type="text" class="datepicker" name="pub_fecha" value="<?php echo $nota_pub_fecha; ?>" /></div>
-                    </div>
-
-                    <div class="formRow">
-                        <div class="grid3"><label>Hora de publicación:</label></div>
-                        <div class="grid4"><input type="text" class="timepicker" name="pub_hora" size="10" value="<?php echo $nota_pub_hora; ?>" />
-                            <span class="ui-datepicker-append">Utilice la rueda del ratón y el teclado</span></div>
+                        <div class="grid3"><label>Revista:</label></div>
+                        <div class="grid9">
+                            <textarea name="contenido" rows="8"/><?php echo $nota_contenido; ?></textarea>
+                        </div>
                     </div>
                     
                     <div class="formRow">

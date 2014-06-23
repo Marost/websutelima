@@ -33,7 +33,7 @@ $pub_hora=date("H:i:s");
     <?php require_once("../../w-sidebarmenu.php"); ?>
     
 </div><!-- Sidebar ends -->      
-	
+    
     
 <!-- Content begins -->
 <div id="content">
@@ -58,13 +58,8 @@ $pub_hora=date("H:i:s");
                     <div class="whead"><h6>Agregar</h6></div>
                     
                     <div class="formRow">
-                        <div class="grid3"><label>Titulo:</label></div>
-                        <div class="grid4"><input type="text" name="titulo" value="" /></div>
-                    </div>
-
-                    <div class="formRow">
-                        <div class="grid3"><label>Número Edición:</label></div>
-                        <div class="grid4"><input type="text" name="num_edicion" value="" /></div>
+                        <div class="grid3"><label>Fecha:</label></div>
+                        <div class="grid4"><input type="text" class="datepicker" name="pub_fecha" value="<?php echo $pub_fecha; ?>" /></div>
                     </div>
 
                     <div class="formRow">
@@ -75,14 +70,10 @@ $pub_hora=date("H:i:s");
                     </div>
 
                     <div class="formRow">
-                        <div class="grid3"><label>Fecha de publicación:</label></div>
-                        <div class="grid4"><input type="text" class="datepicker" name="pub_fecha" value="<?php echo $pub_fecha; ?>" /></div>
-                    </div>
-
-                    <div class="formRow">
-                        <div class="grid3"><label>Hora de publicación:</label></div>
-                        <div class="grid4"><input type="text" class="timepicker" name="pub_hora" size="10" value="<?php echo $pub_hora; ?>" />
-                            <span class="ui-datepicker-append">Utilice la rueda del ratón y el teclado</span></div>
+                        <div class="grid3"><label>Revista:</label></div>
+                        <div class="grid9">
+                            <textarea name="contenido" rows="8"/></textarea>
+                        </div>
                     </div>
 
                     <div class="formRow">

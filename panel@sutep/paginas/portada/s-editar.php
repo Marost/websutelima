@@ -6,20 +6,20 @@ require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
 
 //DECLARACION DE VARIABLES
 $id=$_REQUEST["id"];
-$titulo=$_POST["titulo"];
-$num_edicion=$_POST["num_edicion"];
+$fecha=$_POST["pub_fecha"];
+$anio=substr($fecha,0,4);
+$mes=substr($fecha,5,2);
+$revista=$_POST["contenido"];
+$pdf=$_POST["pdf"];
+$pdf_carpeta=$_POST["pdf_carpeta"];
 $imagen=$_POST["imagen"];
-
-//FECHA Y HORA
-$pub_fecha=$_POST["pub_fecha"];
-$pub_hora=$_POST["pub_hora"];
-$fecha_publicacion=$pub_fecha." ".$pub_hora;
+$imagen_carpeta=$_POST["imagen_carpeta"];
 
 //SUBIR PORTADA
 if($_FILES['fileInput']['name']!=""){
 	if(is_uploaded_file($_FILES['fileInput']['tmp_name'])){ 
 		$fileName=$_FILES['fileInput']['name'];
-		$uploadDir="../../../imagenes/revista/";
+		$uploadDir="../../../imagenes/upload/".fechaCarpeta()."/";
 		$uploadFile=$uploadDir.$fileName;
 		$num = 0;
 		$name = $fileName;
@@ -33,13 +33,15 @@ if($_FILES['fileInput']['name']!=""){
 		$uploadFile = $uploadDir.$name; 
 		move_uploaded_file($_FILES['fileInput']['tmp_name'], $uploadFile);  
 		$name;
+		$carpeta_imagen=fechaCarpeta()."/";
 	}
 }else{
 	$name=$imagen;
+	$carpeta_imagen=$imagen_carpeta;
 }
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_portada SET url='$num_edicion', titulo='".htmlspecialchars($titulo)."', num_edicion='$num_edicion', imagen='$name', fecha_publicacion='$fecha_publicacion' WHERE id=$id;", $conexion);
+$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_portada SET imagen='$name', fecha='$fecha', numero_mes=$mes, anio=$anio, revista='$revista', imagen_carpeta='$carpeta_imagen' WHERE id=$id;", $conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
