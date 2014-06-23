@@ -8,6 +8,7 @@ require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
 $nota_id=$_REQUEST["id"];
 $titulo=$_POST["titulo"];
 $url=getUrlAmigable(eliminarTextoURL($titulo));
+$contenido=$_POST["contenido"];
 
 //FECHA Y HORA
 $pub_fecha=$_POST["pub_fecha"];
@@ -19,6 +20,7 @@ if ($_POST["publicar"]<>""){ $publicar=$_POST["publicar"]; }else{ $publicar=0; }
 
 //INSERTANDO DATOS
 $rst_guardar=mysql_query("UPDATE ".$tabla_suf."_galeria SET url='$url', titulo='".htmlspecialchars($titulo)."', 
+	contenido='$contenido',
 	fecha_publicacion='$fecha_publicacion', 
 	publicar=$publicar WHERE id=$nota_id;", $conexion);
 

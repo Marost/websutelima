@@ -13,6 +13,7 @@ $fila_nota=mysql_fetch_array($rst_nota);
 
 //VARIABLES
 $nota_titulo=$fila_nota["titulo"];
+$nota_contenido=$fila_nota["contenido"];
 $nota_publicar=$fila_nota["publicar"];
 
 /* FECHA */
@@ -71,6 +72,11 @@ $nota_pub_hora=$nota_fecha_pub[1];
                     <div class="formRow">
                         <div class="grid3"><label>Titulo:</label></div>
                         <div class="grid9"><input type="text" name="titulo" value="<?php echo $nota_titulo; ?>" /></div>
+                    </div>
+
+                    <div class="widget">
+                        <div class="whead"><h6>Contenido</h6></div>
+                        <textarea class="ckeditor" name="contenido" /><?php echo $nota_contenido; ?></textarea>
                     </div>
 
                     <div class="formRow">

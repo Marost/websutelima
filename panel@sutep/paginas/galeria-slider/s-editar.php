@@ -12,9 +12,9 @@ $noticia=$_REQUEST["not"];
 //IMAGEN
 if($_POST['uploader_galeria_0_tmpname']==""){
 	$imagen=$_POST["imagen"];
-	$carpeta=$_POST["imagen_carpeta"];
+	$imagen_carpeta=$_POST["imagen_carpeta"];
 }else{
-	$carpeta=fechaCarpeta()."/";
+	$imagen_carpeta=fechaCarpeta()."/";
 	$imagen=$_POST['uploader_galeria_0_tmpname'];
 	$thumb=PhpThumbFactory::create("../../../imagenes/galeria/".$imagen_carpeta."".$imagen."");
 	$thumb->adaptiveResize(110,110);

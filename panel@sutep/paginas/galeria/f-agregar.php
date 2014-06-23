@@ -62,13 +62,9 @@ $pub_hora=date("H:i:s");
                         <div class="grid9"><input type="text" name="titulo" /></div>
                     </div>
 
-                    <div class="formRow">
-                        <div class="grid3"><label>Imagen:</label> </div>
-                        <div class="grid9">
-                            <div class="widget nomargin">    
-                                <div id="uploader_galeria">Tu navegador no soporta HTML5.</div>                    
-                            </div>
-                        </div>
+                    <div class="widget">
+                        <div class="whead"><h6>Contenido</h6></div>
+                        <textarea class="validate[required] ckeditor" name="contenido" /></textarea>
                     </div>
 
                     <div class="formRow">
