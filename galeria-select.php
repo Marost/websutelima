@@ -13,6 +13,7 @@ $urlnoticia=$_REQUEST["url"];
 $rst_noticia=mysql_query("SELECT * FROM stp_galeria WHERE id=$idnoticia AND url='$urlnoticia';", $conexion);
 $fila_noticia=mysql_fetch_array($rst_noticia);
 $noticia_titulo=$fila_noticia["titulo"];
+$noticia_contenido=$fila_noticia["contenido"];
 $noticia_fecha=$fila_noticia["fecha_publicacion"];
 
 //GALERIA DE FOTOS NOTICIA
@@ -79,6 +80,10 @@ $rst_listagaleria=mysql_query("SELECT * FROM stp_galeria WHERE id<>$idnoticia OR
                     </div>
                     
                 </div><!-- FIN SECTION NEWS ITEM FECHA SOCIAL -->
+
+                <div class="scnwi_detalles_texto">
+                    <?php echo $noticia_contenido; ?>
+                </div>
                 
                 <div class="scnwi_imagen">
                     
