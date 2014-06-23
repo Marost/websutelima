@@ -65,6 +65,16 @@ $categoriaInf_titulo=$fila_noticia_categoria["categoria"];
 <link href="libs/royalslider/royalslider.css" rel="stylesheet">
 <link href="libs/royalslider/skins/default/rs-default.css" rel="stylesheet">
 
+<!-- Open Graph -->
+<meta property="og:type" content='website' >
+<meta property="og:site_name" content='<?php echo $web_nombre; ?>' >
+<meta property="og:title" content='<?php echo $noticia_titulo; ?>'>
+<meta property="og:description" content='<?php echo soloDescripcion($noticia_contenido,150); ?>'>
+<meta property="og:url" content='<?php echo $noticia_web; ?>' >
+<meta property="og:image" content='<?php echo $noticia_web_img; ?>' >
+<meta property="fb:admins" content='130961786950093'>
+<!-- fin Open Graph -->
+
 </head>
 
 <body>
@@ -114,9 +124,7 @@ $categoriaInf_titulo=$fila_noticia_categoria["categoria"];
                             <?php } ?>
                         </div>
                     <?php }else{ ?>
-                        <?php if($noticia_tipo==1){ ?>
-                            <img src="<?php echo $noticia_web_img_dest; ?>" alt="<?php echo $noticia_titulo; ?>">
-                        <?php }else{ ?>
+                        <?php if($noticia_web_img<>""){ ?>
                             <img src="<?php echo $noticia_web_img; ?>" alt="<?php echo $noticia_titulo; ?>">
                         <?php } ?>
                     <?php } ?>
