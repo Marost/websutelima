@@ -5,9 +5,16 @@ include("libs/ssdtube/SSDTube.php");
 //EDICION IMPRESA
 $rst_edimpresa=mysql_query("SELECT * FROM stp_portada WHERE fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC", $conexion);
 $fila_edimpresa=mysql_fetch_array($rst_edimpresa);
+$edimpresa_id=$fila_edimpresa["id"];
+$edimpresa_url=$fila_edimpresa["url"];
 $edimpresa_titulo=$fila_edimpresa["titulo"];
 $edimpresa_edicion=$fila_edimpresa["num_edicion"];
 $edimpresa_imagen=$fila_edimpresa["imagen"];
+$edimpresa_imagen_carpeta=$fila_edimpresa["imagen_carpeta"];
+
+//URLS
+$edimpresa_web=$web."edicion/virtual/".$edimpresa_id."/".$edimpresa_url;
+$edimpresa_Img=$web."imagenes/upload/".$edimpresa_imagen_carpeta."".$edimpresa_imagen;
 
 //CARTAS
 $rst_cartas=mysql_query("SELECT * FROM stp_cartas WHERE estado='A' AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 5", $conexion);
@@ -26,12 +33,25 @@ $rst_galeria_prin=mysql_query("SELECT * FROM stp_galeria WHERE fecha_publicacion
     
     <!-- EDICION DEL MES -->
   	<div class="scsdb_item">
+
+        <!-- POPUP -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script>
+            var jPortada = jQuery.noConflict();
+            jPortada(document).on("ready", init);
+
+            function init(){
+                jPortada("#portada-imagen").on("click", function(){
+                    window.open("<?php echo $edimpresa_web; ?>","revista","width=1000,height=625");
+                })
+            }
+        </script>
     	
         <div class="scsdbi_cabecera">La Voz del Magisterio</div>
         
         <div class="scsdbi_contenido scsdbic_fdBlanco scsdbic_txtCentro">
-    		<a href="/revista/<?php echo $edimpresa_edicion; ?>/index.html" target="_blank">
-                <img src="imagenes/revista/<?php echo $edimpresa_imagen; ?>" width="270" alt="Portada" title="<?php echo $edimpresa_titulo; ?>">
+            <a href="javascript:;" id="portada-imagen">
+                <img class="borde-portada-imagen" width="270" src="<?php echo $edimpresa_Img; ?>" alt="Portada">
             </a>
         </div>
         
@@ -115,42 +135,42 @@ $rst_galeria_prin=mysql_query("SELECT * FROM stp_galeria WHERE fecha_publicacion
         
     </div>
     <!-- FIN VIDEOS -->
-    
-    <!-- NOS ESCRIBEN -->
+
+    <!-- BLOGS DE INTERES -->
     <div class="scsdb_item">
-    	
-      	<div class="scsdbi_cabecera">NOS ESCRIBEN</div>
         
-   	  	<div class="scsdbi_contenido scsdbic_fdBlanco scsdbic_fnt12 scsdbic_lh120">
-        	<div id="wg_cartas">
-            	<?php while($fila_cartas=mysql_fetch_array($rst_cartas)){ ?>
-            	<div>
-                	<p><strong><?php echo $fila_cartas["titulo"]; ?></strong></p>
-                    <p><?php echo $fila_cartas["contenido"]; ?></p>
-                </div>
-                <?php } ?>
-            </div>
-            <p><a href="cartas" class="todas_cartas">Todas las cartas...</a></p>
-            <p class="escribe_cartas">Escribenos a: cartas@sutep.org.pe</p>
-      	</div>
+        <div class="scsdbi_cabecera">BLOGS DE LOS SECTORES</div>
+        
+        <div class="scsdbi_contenido scsdbic_fdBlanco scsdbic_fnt12 scsdbic_lh120">
+            <p><a target="_blank" href="http://sutelima.blogspot.com/" class="todas_cartas">www.sutelima.blogspot.com</a></p>
+            <p><a target="_blank" href="http://sutevisector.blogspot.com/" class="todas_cartas">www.sutevisector.blogspot.com</a></p>
+            <p><a target="_blank" href="http://suteprovincialtrujillo.blogspot.com" class="todas_cartas">www.suteprovincialtrujillo.blogspot.com</a></p>
+            <p><a target="_blank" href="http://sutepregionalarequipa.blogspot.com" class="todas_cartas">www.sutepregionalarequipa.blogspot.com</a></p>
+            <p><a target="_blank" href="http://sutebrena.blogspot.com" class="todas_cartas">www.sutebrena.blogspot.com</a></p>
+            <p><a target="_blank" href="http://sutevisector.blogspot.com" class="todas_cartas">www.sutevisector.blogspot.com</a></p>
+            <p><a target="_blank" href="http://sutexsector.blogspot.com" class="todas_cartas">www.sutexsector.blogspot.com</a></p>
+            <p><a target="_blank" href="http://www.sutexi.blogspot.com" class="todas_cartas">www.www.sutexi.blogspot.com</a></p>
+            <p><a target="_blank" href="http://www.sutexiii.blogspot.com" class="todas_cartas">www.www.sutexiii.blogspot.com</a></p>
+            <p><a target="_blank" href="http://sute16.blogspot.com" class="todas_cartas">www.sute16.blogspot.com</a></p>
+            <p><a target="_blank" href="http://bauldocente.pe/"><img src="http://www.derrama.org.pe/RepositorioAPS/banners/29/banner_inferior_BAUL.png"></a></p>
+        </div>
         
     </div>
-    <!-- FIN NOS ESCRIBEN -->
+    <!-- FIN BLOGS DE INTERES -->
 
-    <!-- NOS ESCRIBEN -->
+    <!-- ENLACES DE INTERES -->
     <div class="scsdb_item">
         
         <div class="scsdbi_cabecera">ENLACES DE INTERES</div>
         
         <div class="scsdbi_contenido scsdbic_fdBlanco scsdbic_fnt12 scsdbic_lh120">
-            <p><a target="_blank" href="http://sutelima.blogspot.com/" class="todas_cartas">www.sutelima.blogspot.com</a></p>
-            <p><a target="_blank" href="http://sutevisector.blogspot.com/" class="todas_cartas">www.sutevisector.blogspot.com</a></p>
-            <p><a target="_blank" href="http://sute14sector.blogspot.com/" class="todas_cartas">www.sute14sector.blogspot.com</a></p>
-            <p><a target="_blank" href="http://sutenovenosector.blogspot.com/" class="todas_cartas">www.sutenovenosector.blogspot.com</a></p>
-            <p><a target="_blank" href="http://sutexvsjl.blogspot.com/" class="todas_cartas">www.sutexvsjl.blogspot.com</a></p>
+            <p><a target="_blank" href="http://www.peru.gob.pe/" class="todas_cartas">Portal de Estado Peruano</a></p>
+            <p><a target="_blank" href="http://www.derrama.org.pe/principal" class="todas_cartas">Derrama Magisterial</a></p>
+            <p><a target="_blank" href="http://minedu.gob.pe/" class="todas_cartas">Ministerio de Educación</a></p>
+            <p><a target="_blank" href="http://www.cafae-se.com.pe/web/index.html" class="todas_cartas">CAFAE</a></p>
         </div>
         
     </div>
-    <!-- FIN NOS ESCRIBEN -->
+    <!-- FIN ENLACES DE INTERES -->
     
 </div><!-- FIN SECTION SIDEBAR -->
