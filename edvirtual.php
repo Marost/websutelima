@@ -5,10 +5,9 @@ require_once("panel@sutep/conexion/funciones.php");
 //PORTADA
 $idportada=$_REQUEST["id"];
 $fecha=$_REQUEST["url"];
-$rst_query=mysql_query("SELECT * FROM stp_portada WHERE id=$idportada AND url='$fecha'", $conexion);
+$rst_query=mysql_query("SELECT * FROM stp_portada WHERE id=$idportada", $conexion);
 $fila_query=mysql_fetch_array($rst_query);
 $num_query=mysql_num_rows($rst_query);
-if($num_query==0){header("Location: $web");}
 ?>
 
 <!DOCTYPE html>
