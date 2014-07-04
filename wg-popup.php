@@ -6,7 +6,11 @@ var jPopUp=jQuery.noConflict();
 jPopUp(function() {
 jPopUp( "#dialog-message" ).dialog({
 	modal: true,
-	width: "400px"
+	width: "400px",
+	close: function(ev, ui) 
+    {
+        jPopUp("#popupSC").remove();
+    },
 });
 });
 </script>
@@ -37,5 +41,5 @@ jPopUp( "#dialog-message" ).dialog({
 	<p>lo ser&iacute;amos nuevamente.</p>
 	<p>&nbsp;</p>
 	<p>Somos los maestros del Per&uacute;</p>
-  	<iframe width="100%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/157223670&amp;color=ff0000&amp;auto_play=true&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false"></iframe>
+  	<iframe id="popupSC" width="100%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/157223670&amp;color=ff0000&amp;auto_play=true&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false"></iframe>
 </div>
