@@ -3,7 +3,7 @@
 include("libs/ssdtube/SSDTube.php");
 
 //EDICION IMPRESA
-$rst_edimpresa=mysql_query("SELECT * FROM stp_portada WHERE fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC", $conexion);
+$rst_edimpresa=mysql_query("SELECT * FROM stp_portada ORDER BY id DESC", $conexion);
 $fila_edimpresa=mysql_fetch_array($rst_edimpresa);
 $edimpresa_id=$fila_edimpresa["id"];
 $edimpresa_url=$fila_edimpresa["url"];
