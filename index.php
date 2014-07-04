@@ -125,5 +125,7 @@ $rst_noticia_inferior=mysql_query("SELECT * FROM stp_noticia WHERE fecha_publica
 
 <?php require_once("wg-footer.php"); ?>
 
+<?php require_once("wg-popup.php"); ?>
+
 </body>
 </html>
