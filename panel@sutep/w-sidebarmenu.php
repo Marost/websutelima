@@ -7,6 +7,8 @@
     <!-- Sidebar subnav -->
     <ul class="subNav">
         <li><a href="<?php echo $url_admin; ?>paginas/secciones/lista.php" title=""><span class="icos-frames"></span>Secciones</a></li>
+        <li><a href="<?php echo $url_admin; ?>paginas/enlaces-interes/lista.php" title=""><span class="icos-frames"></span>Enlaces de Interes</a></li>
+        <li><a href="<?php echo $url_admin; ?>paginas/enlaces-blog/lista.php" title=""><span class="icos-frames"></span>Blog de los Sectores</a></li>
         <li><a href="<?php echo $url_admin; ?>paginas/noticias/lista.php" title=""><span class="icos-frames"></span>Noticias</a></li>
         <li><a href="<?php echo $url_admin; ?>paginas/galeria/lista.php" title="" ><span class="icos-frames"></span>Galería de Fotos</a></li>
         <li><a href="<?php echo $url_admin; ?>paginas/portada/lista.php" title=""><span class="icos-frames"></span>Edición Impresa</a></li>
