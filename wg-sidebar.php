@@ -30,7 +30,18 @@ $rst_enlace_interes=mysql_query("SELECT * FROM stp_enlace_interes ORDER BY id AS
 
 ?>
 <div id="section_sidebar">
-    
+
+    <!-- EDICION DEL MES -->
+    <div class="scsdb_item">
+
+        <div class="scsdbi_contenido scsdbic_fdBlanco scsdbic_txtCentro">
+            <a href="http://issuu.com/sute_lima/docs/sute_libro" target="_blank">
+                <img class="borde-portada-imagen" width="270" src="http://image.issuu.com/140827045324-0af280a89be382af5d5802483d7e9435/jpg/page_1_thumb_large.jpg" alt="Portada">
+            </a>
+        </div>
+
+    </div>
+
     <!-- EDICION DEL MES -->
   	<div class="scsdb_item">
 
